@@ -1,4 +1,4 @@
 export const environment = {
-  apiURL: '/api/',
+  apiUrl: 'https://donat-app.herokuapp.com/api',
   production: true
 };

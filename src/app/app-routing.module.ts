@@ -5,8 +5,12 @@ import { AuthService } from './core/services/auth/auth.service';
 const routes: Routes = [
    {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/',
     pathMatch: 'full'
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./modules/account/account.module').then(m => m.AccountModule)
   },
 ];
 

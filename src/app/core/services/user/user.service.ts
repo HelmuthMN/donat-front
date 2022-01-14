@@ -12,19 +12,4 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  register(name: string, email: string, password: string, address: string, phone_number: string, gender: string): Observable<any> {
-    return this.http.post(API_URL + '/register', {
-      name,
-      email,
-      password,
-      address,
-      phone_number,
-      gender
-    });
-  }
-
-  // User routes
-  logout(): Observable<any> {
-    return this.http.post(API_URL + '/logout', {});
-  }
 }

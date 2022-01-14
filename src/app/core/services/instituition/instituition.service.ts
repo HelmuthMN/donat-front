@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Instituition } from 'src/app/model/instituition.model';
+import { Instituition } from 'src/app/core/model/instituition.model';
 import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl + '/instituicao'
