@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  selectedGender = '';
   genders = ['male','female'];
 
   constructor(
@@ -48,10 +47,5 @@ export class RegisterComponent implements OnInit {
          this.isSignUpFailed = true;
       }
     );
-  }
-
-  onGenderChange(newValue: any): void {
-    console.log(newValue);
-    console.log(this.form.get('gender'));
   }
 }

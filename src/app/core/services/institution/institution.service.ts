@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Instituition } from 'src/app/core/model/instituition.model';
+import { Institution } from 'src/app/core/model/institution.model';
 import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl + '/instituicao'
@@ -9,15 +9,15 @@ const API_URL = environment.apiUrl + '/instituicao'
 @Injectable({
   providedIn: 'root'
 })
-export class InstituitionService {
+export class InstitutionService {
 
   constructor(private http: HttpClient) { }
 
-  getInstituition(email: string): Observable<Instituition> {
-    return this.http.get<Instituition>(`${API_URL}/${email}`)
+  getInstitution(email: string): Observable<Institution> {
+    return this.http.get<Institution>(`${API_URL}/${email}`)
   }
 
-  getAllInstituitions(): Observable<Instituition> {
-    return this.http.get<Instituition>(`${API_URL}`)
+  getAllInstitutions(): Observable<Institution> {
+    return this.http.get<Institution>(`${API_URL}`)
   }
 }
