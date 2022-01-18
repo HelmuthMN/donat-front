@@ -2,19 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ViewpageComponent } from './viewpage/viewpage.component';
 import { HomepageRoutingModule } from './homepage-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
-    ViewpageComponent
+    ViewpageComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
     HomepageRoutingModule
   ],
   exports: [
-    ViewpageComponent
+    ViewpageComponent,
+    NavbarComponent
   ]
 })
 export class HomepageModule { }
