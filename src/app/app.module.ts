@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccountModule } from './modules/account/account.module';
 import { HomepageModule } from './modules/homepage/homepage.module';
 import { InstitutionModule } from './modules/institution/institution.module';
+import { NavbarComponent } from './modules/shared/navbar/navbar.component';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { InstitutionModule } from './modules/institution/institution.module';
     HttpClientModule,
     AccountModule,
     HomepageModule,
-    InstitutionModule
+    InstitutionModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
