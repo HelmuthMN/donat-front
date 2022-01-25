@@ -17,13 +17,9 @@ body {
 .container {
   max-width: 1000px;
   padding-left: 4.5rem;
-//   padding-right: 1.4rem;
-//   margin-left: auto;
-//   margin-right: auto;
 }
 #navbar {
   --navbar-height: 64px;
-//   position: fixed;
   height: var(--navbar-height);
   background-color: aquamarine;
   left: 0;
@@ -60,8 +56,8 @@ body {
   width: 100%;
   padding: 0.4em 0.8em;
   border-radius: 5px;
-  position: relative;
-  left: 50em;
+  position:static;
+  // left: 60em;
 }
 
 .navbar-link:is(:focus, :hover) {
