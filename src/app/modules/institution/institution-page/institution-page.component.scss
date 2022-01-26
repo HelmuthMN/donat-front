@@ -1,3 +1,6 @@
+
+@import "../../../../shared/variables";
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #fafafa;
@@ -20,11 +23,12 @@ body {
 .search button{
   width: 8.5em;
   height: 2em;
-  background-color:aquamarine;
+  background-color: $primary-color;
   font-weight: bold;
   font-size: 1em;
   border-radius: 12px;
-  border: 0.16em solid black;
+  border: 0.15em solid black;
+  cursor: pointer;
 }
 
 .title {
@@ -59,7 +63,7 @@ body {
 }
 
 .card p {
-  color: #7f8086;
+  color: #a3a5ae;
   font-size: 16px;
   margin: 0.5em;
 }
@@ -68,6 +72,7 @@ body {
   float: center;
   max-width: 10em;
   max-height: 10em;
+  border-radius: 50%;
 }
 
 .black {

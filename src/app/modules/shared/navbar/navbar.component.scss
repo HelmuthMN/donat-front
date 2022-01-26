@@ -4,6 +4,9 @@ root {
   --navbar-text-color-focus: white;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
 }
+
+@import "../../../../shared/variables";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,14 +19,16 @@ body {
 }
 .container {
   padding-left: 4.5rem;
+  border-radius: 12px;
+  border: 0.16em solid black;
 }
 #navbar {
-  --navbar-height: 64px;
-  height: var(--navbar-height);
-  background-color: aquamarine;
+  height: 64px;
+  background-color: $primary-color;
   left: 0;
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
 }
 .navbar-container {
   display: flex;
@@ -43,7 +48,8 @@ body {
   display: flex;
   font-weight: 400;
   align-items: center;
-//   left: 50px;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .home-link:is(:focus, :hover) {
@@ -55,8 +61,7 @@ body {
   width: 100%;
   padding: 0.4em 0.8em;
   border-radius: 5px;
-  position:static;
-  // left: 60em;
+  position: static;
 }
 
 .navbar-link:is(:focus, :hover) {
@@ -71,16 +76,15 @@ body {
   margin-right: 0.5em;
 }
 .navbar-logo{
-    width: 70px;
-    height: 70px;
-    margin-left: 1.2em;
-    position: relative;
-    right: 25px;
-    bottom: 15px;
+  width: 70px;
+  height: 70px;
+  margin-left: 0.5em;
+  position: relative;
+  right: 25px;
+  bottom: 18px;
 }
 .our-name {
-    font-size: 2em;
-    font-weight: bold;
+  font-size: 2em;
 }
 #navbar-toggle {
   cursor: pointer;

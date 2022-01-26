@@ -17,42 +17,22 @@ export class InstitutionPageComponent implements OnInit {
   
   allInstitutions!: Institution[];
   filteredInstitution!: Institution[];
-  choosedInstitution = '';
-  institutionByName = {};
   errorMessage = '';
 
   ngOnInit(): void {
    this.institutionService.getAllInstitutions().pipe(take(1)).subscribe(res => this.allInstitutions = res);
-  //  this.filteredInstitution = this.allInstitutions;
   }
   
-  searchByName(name: string) {
-    return this.institutionByName = this.institutionService.getInstitution(name);
+  handleInstitution(email: string) {
+    this.router.navigate(['/instituicao/' + email])
   }
 
-  // searchFunction(){
-  //     let dataFiltered = this.allInstitutions.filter(
-  //       (p) =>
-  //         p.name
-  //           .toLowerCase()
-  //           .includes(this.choosedInstitution.toLowerCase())
-  //     );
-  //     this.filteredInstitution = dataFiltered;
-  //     console.log('filtrado',this.filteredInstitution)
-  //     console.log('data', dataFiltered)
-  //     console.log('dado selecionado', this.choosedInstitution)
-  // }
-
-  onEnter(value: string){ 
+  handleInput(value: string){ 
      this.filteredInstitution = this.allInstitutions.filter(
         (p) =>
           p.name
             .toLowerCase()
             .includes(value.toLowerCase())
       );
-      // this.filteredInstitution = dataFiltered;
-      // console.log('filtrado',this.filteredInstitution)
-      // console.log('data', dataFiltered)
-      // console.log('dado selecionado', this.choosedInstitution)
   }
 }
