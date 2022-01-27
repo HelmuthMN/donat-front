@@ -13,8 +13,13 @@
       <ul class="navbar-links">
         <li class="navbar-item"><a class="navbar-link" routerLink="#" (click)="goToBottom()">About</a></li>
         <li class="navbar-item"><a class="navbar-link" routerLink="/instituicoes" routerLinkActive="active">Instituições</a></li>
-        <li class="navbar-item"><a class="navbar-link" routerLink="/login" routerLinkActive="active">Login</a></li>
-        <li class="navbar-item"><a class="navbar-link" routerLink="/register" routerLinkActive="active">Registrar</a></li>
+        <div class="navbar-link" *ngIf="handleLoggedIn() == false">
+          <li class="navbar-item"><a class="navbar-link" routerLink="/login" routerLinkActive="active">Login</a></li>
+          <li class="navbar-item"><a class="navbar-link" routerLink="/register" routerLinkActive="active">Registrar</a></li>
+        </div>
+        <div class="navbar-link" *ngIf="handleLoggedIn() == true">
+          <app-user-dropdown></app-user-dropdown>
+        </div>
       </ul>
     </div>
   </nav>

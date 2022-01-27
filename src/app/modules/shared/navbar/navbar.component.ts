@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  isLoggedIn: boolean = false;
+  roles: string[] = [];
 
-  constructor() { }
+  constructor(
+    private tokenStorage: TokenStorageService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  // checa se há algum token vinda daquela requisição
+  // se tiver um token = logado
+  // se não = false
+  handleLoggedIn() {
+    console.log(this.tokenStorage.getToken)
+    if (this.tokenStorage.getToken()){
+      this.isLoggedIn = true;
+      return this.isLoggedIn;
+    }
+    return this.isLoggedIn = false;
   }
 
   goToBottom(){

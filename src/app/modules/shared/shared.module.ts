@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { UserDropdownComponent } from './buttons/user-dropdown/user-dropdown.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    UserDropdownComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,15 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
+</head>
+
+<ul class="user-dropdown">
+    <div (click)="toggleMenu()">
+        <img src="https://p.favim.com/orig/2018/10/19/anime-girl-icons-anime-girl-cute-Favim.com-6448415.png" alt="">
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a routerLink="/" routerLinkActive="inactive">Dashboard</a></li>
+            <li (click)="submitLogout()" ><a routerLink="/home" routerLinkActive="active"><i class="fa fa-sign-out-alt" style="font-size:18px"></i>Sair</a></li>
+        </ul>
+    </div>
+</ul>
