@@ -55,14 +55,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  submitLogout(): void{
-    //logout da api
-    this.authService.logout();
-    //retira os tokens do storage
-    this.tokenStorage.singOut();
-    this.isLoggedIn = false;
-    this.router.navigate(['/']);
-  }  
+ 
   
   reloadPage(): void{
     window.location.reload();

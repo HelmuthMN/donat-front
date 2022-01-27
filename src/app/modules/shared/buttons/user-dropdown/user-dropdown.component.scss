@@ -1,0 +1,70 @@
+@import "../../../../../shared/variables";
+// @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css');
+*{margin: 0; padding: 0;}
+
+.user-dropdown{
+    list-style:none;
+    // border:1px solid #c0c0c0;
+    float:left;
+}
+
+.user-dropdown ul{
+    list-style: none;
+}
+
+.user-dropdown img {
+    position: relative;
+    top: 0.2em;
+    width: 50px;
+    height: 50px;
+    border: 0.16em solid black;
+    // max-width: 4.5em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user-dropdown li{
+    position:relative;
+    float:left;
+}
+
+.user-dropdown li a{color:#333; text-decoration:none; padding:5px 10px; display:block;}
+
+.user-dropdown .menu{
+    position: absolute;
+    top: 4.3em;
+    right: 0.5em;
+    padding: 10px 20px;
+    background-color: $primary-color;
+    width: 10em;
+    // box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    border: 0.16em solid black;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.user-dropdown .menu.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+// .user-dropdown li:hover ul, .user-dropdown li.over ul{display:block;}
+
+.user-dropdown .menu ul li{
+    // border:1px solid #c0c0c0;
+    display: block;
+    width:150px;
+}
+
+.user-dropdown ul li i {
+    margin-right: 0.2em;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+// hover ao passar o mouse em cima do item do dropdown
+.menu li:hover a{
+    color: black;
+}
