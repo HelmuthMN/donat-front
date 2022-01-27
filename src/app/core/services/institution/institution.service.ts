@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Institution } from 'src/app/core/model/institution.model';
 import { environment } from 'src/environments/environment';
 
@@ -14,10 +14,10 @@ export class InstitutionService {
   constructor(private http: HttpClient) { }
 
   getInstitution(email: string): Observable<Institution> {
-    return this.http.get<Institution>(`${API_URL}/${email}`)
+    return this.http.get<Institution>(`${API_URL}/${email}`);
   }
 
-  getAllInstitutions(): Observable<Institution> {
-    return this.http.get<Institution>(`${API_URL}`)
+  getAllInstitutions(): Observable<Institution[]> {
+    return this.http.get<Institution[]>(`${API_URL}`);
   }
 }

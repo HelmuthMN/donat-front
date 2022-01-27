@@ -1,3 +1,32 @@
-<div class="placeholder">
-    <img src="https://i.gifer.com/Awch.gif" alt="hello">
+<div>
+   <body>
+        <p class="title">Pesquise a instituição desejada a seguir: </p>
+        <div class="search">
+            <input type="text" #box (keyup.enter)="handleInput(box.value)"> 
+            <button (click)="handleInput(box.value)">Pesquisar</button>
+        </div>
+        <div class="row" *ngIf="filteredInstitution else loading">
+            <div *ngFor="let x of filteredInstitution">
+                <div (click)="handleInstitution(x.email)" class="card black">
+                    <img class="image" src="https://i.gifer.com/Awch.gif" alt="" />
+                    <h2>{{x.name}}</h2>
+                    <p>{{x.address}}</p>
+                    <p>{{x.cep}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <ng-template #loading>
+            <div class="row">
+                <div *ngFor="let y of allInstitutions">
+                    <div (click)="handleInstitution(y.email)" class="card black">
+                        <img class="image" src="https://i.gifer.com/Awch.gif" alt="" />
+                        <h2>{{y.name}}</h2>
+                        <p>{{y.address}}</p>
+                        <p>{{y.cep}}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+  </body>
 </div>
