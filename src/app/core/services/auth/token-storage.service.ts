@@ -10,27 +10,27 @@ const EMAIL = 'email';
 export class TokenStorageService {
 
   constructor() { }
-
+  
   singOut(): void {
-    window.sessionStorage.clear();
+    localStorage.clear();
   }
 
   public saveToken(token: string): void {
-    window.sessionStorage.removeItem(TOKEN);
-    window.sessionStorage.setItem(TOKEN, token);
+    localStorage.removeItem(TOKEN);
+    localStorage.setItem(TOKEN, token);
   }
 
   public getToken(): string | null {
-    return window.sessionStorage.getItem(TOKEN);
+    return localStorage.getItem(TOKEN);
   }
 
   public saveUser(user: any): void {
-    window.sessionStorage.removeItem(USER);
-    window.sessionStorage.setItem(USER, JSON.stringify(user));
+    localStorage.removeItem(USER);
+    localStorage.setItem(USER, JSON.stringify(user));
   }
 
   public getUser(): any {
-    const user = window.sessionStorage.getItem(USER);
+    const user = localStorage.getItem(USER);
     if(user) {
       return JSON.parse(user);
     }
@@ -39,12 +39,12 @@ export class TokenStorageService {
   }
 
   public setEmail(email: string): any {
-    window.sessionStorage.removeItem(EMAIL);
-    window.sessionStorage.setItem(EMAIL, email);
+    localStorage.removeItem(EMAIL);
+    localStorage.setItem(EMAIL, email);
   }
 
   public getEmail(): any {
-    return window.sessionStorage.getItem(EMAIL);
+    return localStorage.getItem(EMAIL);
   }
 
 

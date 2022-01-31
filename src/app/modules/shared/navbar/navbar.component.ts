@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
   // se tiver um token = logado
   // se não = false
   handleLoggedIn() {
-    console.log(this.tokenStorage.getToken)
     if (this.tokenStorage.getToken()){
       this.isLoggedIn = true;
       return this.isLoggedIn;

@@ -9,7 +9,7 @@ const routes: Routes = [
         component: InstitutionPageComponent
     },
     {
-        path: 'instituicao/:email',
+        path: 'instituicao/:_id',
         component: InstitutionDetailComponent
     }
 ];

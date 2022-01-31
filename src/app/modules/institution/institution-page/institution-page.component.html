@@ -7,7 +7,7 @@
         </div>
         <div class="row" *ngIf="filteredInstitution else loading">
             <div *ngFor="let x of filteredInstitution">
-                <div (click)="handleInstitution(x.email)" class="card black">
+                <div (click)="handleInstitution(x._id)" class="card black">
                     <img class="image" src="https://i.gifer.com/Awch.gif" alt="" />
                     <h2>{{x.name}}</h2>
                     <p>{{x.address}}</p>
@@ -19,7 +19,7 @@
         <ng-template #loading>
             <div class="row">
                 <div *ngFor="let y of allInstitutions">
-                    <div (click)="handleInstitution(y.email)" class="card black">
+                    <div (click)="handleInstitution(y._id)" class="card black">
                         <img class="image" src="https://i.gifer.com/Awch.gif" alt="" />
                         <h2>{{y.name}}</h2>
                         <p>{{y.address}}</p>
