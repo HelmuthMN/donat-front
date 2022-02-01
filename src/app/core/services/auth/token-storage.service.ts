@@ -26,26 +26,26 @@ export class TokenStorageService {
 
   public saveUser(user: any): void {
     localStorage.removeItem(USER);
-    localStorage.setItem(USER, JSON.stringify(user));
+    localStorage.setItem(USER, user);
   }
 
   public getUser(): any {
     const user = localStorage.getItem(USER);
     if(user) {
-      return JSON.parse(user);
+      return user;
     }
 
     return null;
   }
 
-  public setEmail(email: string): any {
-    localStorage.removeItem(EMAIL);
-    localStorage.setItem(EMAIL, email);
-  }
+  // public setEmail(email: string): any {
+  //   localStorage.removeItem(EMAIL);
+  //   localStorage.setItem(EMAIL, email);
+  // }
 
-  public getEmail(): any {
-    return localStorage.getItem(EMAIL);
-  }
+  // public getEmail(): any {
+  //   return localStorage.getItem(EMAIL);
+  // }
 
 
  // Verificar de colocar jwt na API e dar decode no front 

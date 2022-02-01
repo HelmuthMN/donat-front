@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
 
@@ -21,13 +21,14 @@ export class LoginComponent implements OnInit {
     private authService: AuthService, 
     private tokenStorage: TokenStorageService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) {}
   
   ngOnInit(): void {
     if (this.tokenStorage.getToken()){
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+      // this.roles = this.tokenStorage.getUser().roles;
     }
 
     this.form = this.formBuilder.group({
@@ -39,12 +40,12 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.authService.login(this.form.get('email')?.value, this.form.get('password')?.value).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
+        this.tokenStorage.saveToken(data.access_token);
+        this.tokenStorage.saveUser(data.data.user_name);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
+        // this.roles = this.tokenStorage.getUser().roles;
         this.router.navigate(['/']);
         // this.reloadPage();
       }, err => {
