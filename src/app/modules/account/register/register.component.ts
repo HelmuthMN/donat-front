@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  genders = ['male','female'];
+  genders = ['Male','Female'];
 
   constructor(
     private authService: AuthService,
@@ -34,8 +34,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    const gender = this.form.get('gender')?.value.toLowerCase();
+    console.log(gender)
     this.authService.register(this.form.get('full_name')?.value,this.form.get('email')?.value , this.form.get('password')?.value, 
-    this.form.get('address')?.value, this.form.get('phone_number')?.value, this.form.get('gender')?.value).subscribe(
+    this.form.get('address')?.value, this.form.get('phone_number')?.value, gender).subscribe(
       data =>  {
         console.log(data);
         this.isSuccessful = true;

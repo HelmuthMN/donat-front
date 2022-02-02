@@ -13,11 +13,11 @@ export class InstitutionService {
 
   constructor(private http: HttpClient) { }
 
-  getInstitution(email: string): Observable<Institution> {
-    return this.http.get<Institution>(`${API_URL}/${email}`);
+  getInstitutionByID(id: string): Observable<Institution> {
+    return this.http.get<Institution>(`${API_URL}/${id}`, {withCredentials:true});
   }
 
   getAllInstitutions(): Observable<Institution[]> {
-    return this.http.get<Institution[]>(`${API_URL}`);
+    return this.http.get<Institution[]>(`${API_URL}`, {withCredentials:true});
   }
 }

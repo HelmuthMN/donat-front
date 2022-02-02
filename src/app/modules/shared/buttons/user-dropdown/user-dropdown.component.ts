@@ -13,6 +13,7 @@ export class UserDropdownComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,5 +29,11 @@ export class UserDropdownComponent implements OnInit {
     this.authService.logout();
     //retira os tokens do storage
     this.tokenStorage.singOut();
+    this.handleNavigation();
   }  
+
+  handleNavigation(): void{
+      this.router.navigate(['/home']);
+      window.location.reload();
+    }
 }

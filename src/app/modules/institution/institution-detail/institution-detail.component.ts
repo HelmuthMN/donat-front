@@ -22,9 +22,9 @@ export class InstitutionDetailComponent implements OnInit {
   }
 
   handleLoad() {
-    const email = this.route.snapshot.paramMap.get("email")
-    if(email != null){
-      this.institutionService.getInstitution(email).pipe(take(1)).subscribe(
+    const id = this.route.snapshot.paramMap.get("_id")
+    if(id!= null){
+      this.institutionService.getInstitutionByID(id).pipe(take(1)).subscribe(
         response => {
           this.institution = response
       });

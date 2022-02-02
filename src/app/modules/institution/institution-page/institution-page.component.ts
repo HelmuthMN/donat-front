@@ -23,8 +23,8 @@ export class InstitutionPageComponent implements OnInit {
    this.institutionService.getAllInstitutions().pipe(take(1)).subscribe(res => this.allInstitutions = res);
   }
   
-  handleInstitution(email: string) {
-    this.router.navigate(['/instituicao/' + email])
+  handleInstitution(id: string) {
+    this.router.navigate(['/instituicao/' + id])
   }
 
   handleInput(value: string){ 
