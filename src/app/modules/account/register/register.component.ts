@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      full_name: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
+      username: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
       password: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
       address: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     const gender = this.form.get('gender')?.value.toLowerCase();
     console.log(gender)
-    this.authService.register(this.form.get('full_name')?.value,this.form.get('email')?.value , this.form.get('password')?.value, 
+    this.authService.register(this.form.get('username')?.value,this.form.get('email')?.value , this.form.get('password')?.value, 
     this.form.get('address')?.value, this.form.get('phone_number')?.value, gender).subscribe(
       data =>  {
         console.log(data);
