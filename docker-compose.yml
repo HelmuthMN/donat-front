@@ -1,0 +1,7 @@
+version: '3.3'
+services:
+  angular-docker:
+    container_name: angular-docker-container
+    build: ./src
+    ports:
+      - '9000:80'
