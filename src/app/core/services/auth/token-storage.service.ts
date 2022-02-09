@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const TOKEN = 'access_token';
-const USER =  'user';
+const USER =  'username';
 const EMAIL = 'email';
 
 @Injectable({

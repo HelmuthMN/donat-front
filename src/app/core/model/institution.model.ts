@@ -5,5 +5,6 @@ export interface Institution {
 	address: string,
     url: string,
     cep: string,
+    image: string,
 	phone_number: string,
 }
