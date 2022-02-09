@@ -1,7 +1,11 @@
-version: '3.3'
-services:
-  angular-docker:
-    container_name: angular-docker-container
-    build: ./src
-    ports:
-      - '9000:80'
+version: '3.5' # We use version 3.5 syntax
+services: # Here we define our service(s)
+    angular-service: # The name of the service
+      container_name: donat-front # Container name
+      build: ./ # Location of our Dockerfile
+      volumes: # Volume binding
+        - './:/app' 
+      ports: 
+        - '4200:4200' # Port mapping
+      command: > 
+        bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
