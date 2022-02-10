@@ -1,0 +1,53 @@
+<div class="profile">
+  <div class="profile-title">
+    <h1>Configurações da Conta</h1>
+  </div>
+  <input type="file" class="file-input"
+       accept="image/*"
+       (change)="onFileSelected($event)" #fileUpload>
+
+  <div class="profile-content">
+    <!-- {{file?.name || "No file uploaded yet."}} -->
+    <div class="profile-icon">
+      <div *ngIf="file">
+        <img [src]="imgURL" width=130px style="margin:0;" alt="">
+      </div>
+      <div *ngIf="!file">
+        <img [src]="currentIcon" width=130px style="margin:0;">
+      </div>
+        <button color="primary" class="upload-btn"
+          (click)="fileUpload.click()">
+          <a class="btn" style="color:black;font-weight:600">Mudar Imagem</a>
+          <!-- <i class="fa-solid fa-paperclip"></i> -->
+        </button>
+    </div>
+    
+    <div class="profile-data">
+      <form [formGroup]="form" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Nome de Usuário</label>
+          <input type="text" placeholder="{{user['username']}}" class="form-control" name="username" formControlName="username" required minlength="3" maxlength="20" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" placeholder="{{user['email']}}" class="form-control" formControlName="email" name="email" required email />
+        </div>
+        <div class="form-group">
+          <label for="address">Endereço</label>
+          <input type="text" placeholder="{{user['address']}}" class="form-control" name="address" formControlName="address" required minlength="6" />
+        </div>
+        <div class="form-group">
+          <label for="phone_number">Número de Telefone</label>
+          <input type="text" placeholder="{{user['phone_number']}}" class="form-control" name="phone_number" formControlName="phone_number" required minlength="6" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+   <button (click)="onUpload()" 
+          class="btn btn-success">
+          Upload
+   </button>
+</div>
+
+

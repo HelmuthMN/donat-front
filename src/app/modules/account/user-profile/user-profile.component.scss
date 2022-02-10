@@ -1,0 +1,89 @@
+
+@import "../../../../shared/variables";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  margin-top: 3.8em;
+}
+
+.profile .profile-content {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 3em;
+}
+
+.profile .profile-content .profile-icon{
+  padding-left: 8em;
+  line-height: 3em;
+}
+
+.profile .profile-content .profile-data{
+  line-height: 3em;
+}
+
+.profile .form-group {
+    font-size: 1.05em;
+    margin-bottom: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile .form-group .form-control {
+    font-size: 0.9em;
+    height: 1.8em;
+    width: 18.5em;
+    padding: 2.5px 15px;
+    border: 0.15em solid black;
+    border-radius: 5em;
+    justify-content: center;
+    text-align: center;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  font-size: 1.12em;
+  color: black;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+    font-size: 1.12em;
+    color: black;  
+}
+
+::placeholder {
+  font-size: 1.12em;
+  color: black;
+}
+
+
+.file-input {
+  display: none;
+}
+
+.upload-btn {
+  cursor: pointer;
+  background-color: $primary-color; /* Green */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  color: black;
+  padding: 6px 12px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.upload-btn i {
+    font-size: 20px;
+}
