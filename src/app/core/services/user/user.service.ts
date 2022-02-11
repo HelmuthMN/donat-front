@@ -23,7 +23,7 @@ export class UserService {
         
       // Make http post request over api
       // with formData as req
-      return this.http.put(`${API_URL}/profile-image`, formData, {withCredentials:true})
+      return this.http.put(`${API_URL}/profile_image`, formData, {withCredentials:true})
   }
 
   retrieveImage(): Observable<any>{

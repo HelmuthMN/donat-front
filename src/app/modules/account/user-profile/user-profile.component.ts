@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -21,6 +22,7 @@ export class UserProfileComponent implements OnInit {
   form!: FormGroup;
   isSuccessful = false;
   user: any;
+  isLoggedIn = false;
 
   fileName = '';
 
@@ -28,16 +30,17 @@ export class UserProfileComponent implements OnInit {
     private userService: UserService,
     private sanitizer: DomSanitizer,
     private formBuilder: FormBuilder,
+    private location: Location
     ) {}
   
   ngOnInit(): void {
+    // verificar possibilidade de passar um valor default dentro do 'value' do FormControl
     this.form = this.formBuilder.group({
-      username: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      email: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      password: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      address: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      phone_number: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      gender: new FormControl('', Validators.compose([Validators.required, Validators.max(30)]))
+      username: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
+      email: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
+      // password: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
+      address: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
+      phone_number: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
     });
     this.getUser();
     this.loadImage();
@@ -47,7 +50,6 @@ export class UserProfileComponent implements OnInit {
   onFileSelected(event?: any) {
     this.file = event.target.files[0];
     let reader = new FileReader();
-      // this.imagePath = files;
     if(this.file){
       reader.readAsDataURL(this.file); 
       reader.onload = (_event) => { 
@@ -56,12 +58,12 @@ export class UserProfileComponent implements OnInit {
     }
   }
   
-  onUpload() {
+  onSubmit() {
     this.loading = !this.loading;
         this.userService.upload(this.file).subscribe(
             (event: any) => {
                 if (typeof (event) === 'object') {  
-                    this.loading = false; // Flag variable 
+                    this.loading = false;
                     window.location.reload();
                 }
             }
@@ -72,6 +74,7 @@ export class UserProfileComponent implements OnInit {
     this.userService.getLoggedUser().subscribe(
       response => {
         this.user = response.data
+        this.isLoggedIn = true;
       }
     );
   }
@@ -84,8 +87,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  onSubmit(): void{
-    console.log('tnc')
-
+  onCancel(): void{
+    this.location.back()
   }
 }

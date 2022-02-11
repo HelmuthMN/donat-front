@@ -16,10 +16,19 @@
   margin-top: 3.8em;
 }
 
+.profile .profile-body {
+  border: 0.3em solid black;
+  border-radius: 2em;
+  background-color: rgba(134, 208, 251, 0.5);
+  margin-top: 3em;
+  height: 37em;
+  max-height: 40em;
+}
+
 .profile .profile-content {
   display: flex;
   flex-direction: row-reverse;
-  padding: 3em;
+  padding: 4em;
 }
 
 .profile .profile-content .profile-icon{
@@ -38,6 +47,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.profile .form-group label {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .profile .form-group .form-control {
@@ -74,7 +88,7 @@
 .upload-btn {
   cursor: pointer;
   background-color: $primary-color; /* Green */
-  border: none;
+  border: 0.15em solid black;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   color: black;
   padding: 6px 12px;
@@ -86,4 +100,29 @@
 
 .upload-btn i {
     font-size: 20px;
+}
+
+.profile .profile-btn{
+  display: flex;
+  flex-direction: row; 
+  width: 45em;
+  justify-content: space-evenly;
+}
+
+.profile .profile-btn .btn{
+    // margin-top: 1em;
+    background-color: $primary-color; /* Green */
+    border: 0.15em solid black;
+    border-radius: 5em;
+    height: 2em;
+    width: 10em;
+    color: black;
+    padding: 5px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    cursor: pointer;
+    // text-decoration: none;
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: bold;
 }
