@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
+import { UserService } from 'src/app/core/services/user/user.service';
+
 
 @Component({
   selector: 'app-user-dropdown',
@@ -10,13 +13,20 @@ import { TokenStorageService } from 'src/app/core/services/auth/token-storage.se
 })
 export class UserDropdownComponent implements OnInit {
 
+  icon: any;
+  defaultIcon: any;
+
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
-    private router: Router
+    private router: Router,
+    private userService: UserService,
+    private sanitizer: DomSanitizer
+
   ) { }
 
   ngOnInit(): void {
+    this.loadImage();
   }
 
   toggleMenu(){
@@ -36,4 +46,12 @@ export class UserDropdownComponent implements OnInit {
       this.router.navigate(['/home']);
       window.location.reload();
     }
+
+  loadImage(): any{
+    this.userService.retrieveImage().subscribe(
+      (response: any) => {
+        let objectURL = URL.createObjectURL(response);
+        this.icon = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+    });
+  }
 }
