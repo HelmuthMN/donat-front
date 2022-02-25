@@ -27,7 +27,7 @@ export class AuthTokenInterceptor implements HttpInterceptor {
                 // auto logout if 401 response returned from api
                 this.showSessionExpiredPopUp()
             }
-
+            console.log(err)
             const error = err.error.message || err.statusText;
             return throwError(() => new Error(error));
         }))

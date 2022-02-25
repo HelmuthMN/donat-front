@@ -20,4 +20,17 @@ export class InstitutionService {
   getAllInstitutions(): Observable<Institution[]> {
     return this.http.get<Institution[]>(`${API_URL}`, {withCredentials:true});
   }
+
+  createInstitution(name: string, email: string, address: string, url: string, cpf: string, image: string, phone_number: string): Observable<Institution> {
+    return this.http.post<Institution>(`${API_URL}`,{
+      name: name,
+      email: email,
+      address: address,
+      url: url,
+      cpf: cpf,
+      image: image,
+      phone_number: phone_number,
+    }
+    , {withCredentials:true})
+  }
 }

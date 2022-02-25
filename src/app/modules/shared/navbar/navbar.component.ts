@@ -8,6 +8,7 @@ import { TokenStorageService } from 'src/app/core/services/auth/token-storage.se
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
+  isAdmin: boolean = true;
   roles: string[] = [];
 
   constructor(

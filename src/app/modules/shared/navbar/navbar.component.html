@@ -11,6 +11,7 @@
     </button>
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
+        <li class="navbar-item" *ngIf="isAdmin"><a class="navbar-link" routerLink="/admin">Admin Area</a></li>
         <li class="navbar-item"><a class="navbar-link" routerLink="#" (click)="goToBottom()">About</a></li>
         <li class="navbar-item"><a class="navbar-link" routerLink="/instituicoes" routerLinkActive="active">Instituições</a></li>
         <div class="navbar-link" *ngIf="handleLoggedIn() == false">
