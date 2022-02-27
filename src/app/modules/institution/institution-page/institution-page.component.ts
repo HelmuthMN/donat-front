@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InstitutionService } from 'src/app/core/services/institution/institution.service';
-import { Institution } from 'src/app/core/model/institution.model';
+import { Institution, InstitutionGet } from 'src/app/core/model/institution.model';
 import { map, take } from 'rxjs';
 @Component({
   selector: 'app-institution-page',
@@ -15,8 +15,8 @@ export class InstitutionPageComponent implements OnInit {
     private router: Router
   ) { }
   
-  allInstitutions!: Institution[];
-  filteredInstitution!: Institution[];
+  allInstitutions!: InstitutionGet[];
+  filteredInstitution!: InstitutionGet[];
   errorMessage = '';
 
   ngOnInit(): void {
