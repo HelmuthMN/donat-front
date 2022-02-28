@@ -1,0 +1,100 @@
+@import "../../../../shared/variables";
+
+.admin-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    margin-top: 3.8em;
+}
+
+.admin-body .profile-img-admin-body{
+    max-width: 20em;
+    max-height: 20em;
+    border: 0.2em solid black;
+    border-radius: 50%;
+}
+
+.admin-body form {
+    margin-top: 2em;
+}
+
+.admin-body .form-group {
+    font-size: 1.05em;
+    margin-bottom: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-body .form-group label {
+    font-size: 1.2em;
+    padding: 0.3em;
+    font-weight: bold;
+    color: black;
+}
+
+//inputs
+.admin-body .form-group .form-control {
+    font-size: 0.9em;
+    height: 1.5em;
+    width: 18.5em;
+    padding: 2.5px 15px;
+    border: 0.15em solid black;
+    border-radius: 5em;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  font-size: 1.12em;
+  color: black;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+    font-size: 1.12em;
+    color: black;  
+}
+
+::placeholder {
+  font-size: 1.12em;
+  color: black;
+}
+
+.admin-body .form-group select  {
+//   position: relative;
+  display: block;
+  height: 2.2em;
+  width: 12.5em;
+  padding: 2.5px 15px;
+  margin: 0 auto;
+  border-radius: 5em;
+  border: 0.15em solid black;
+  background-color: white;
+  z-index: 10;
+}
+
+.admin-body .form-group .btn {
+    margin-top: 1em;
+    background-color: $primary-color; 
+    border: 0.15em solid black;
+    border-radius: 5em;
+    height: 2.5em;
+    width: 15em;
+    color: black;
+    padding: 5px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    cursor: pointer;
+    // text-decoration: none;
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: bold;
+}

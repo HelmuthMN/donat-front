@@ -35,11 +35,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     const gender = this.form.get('gender')?.value.toLowerCase();
-    console.log(gender)
-    this.authService.register(this.form.get('username')?.value,this.form.get('email')?.value , this.form.get('password')?.value, 
+    this.authService.register(this.form.get('username')?.value, this.form.get('email')?.value, this.form.get('password')?.value, 
     this.form.get('address')?.value, this.form.get('phone_number')?.value, gender).subscribe(
       data =>  {
-        console.log("data");
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.router.navigate(['/login']);
