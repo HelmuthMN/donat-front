@@ -35,4 +35,8 @@ export class InstitutionPageComponent implements OnInit {
             .includes(value.toLowerCase())
       );
   }
+
+  handleDropdown() {
+    document.getElementById("myDropdown")?.classList.toggle("show");
+  }
 }

@@ -5,6 +5,16 @@
             <input type="text" #box (keyup.enter)="handleInput(box.value)"> 
             <button (click)="handleInput(box.value)">Pesquisar</button>
         </div>
+        <div class="filters">
+            <h2>Filtros</h2>
+            <div class="dropdown">
+                <button (click)="handleDropdown()" class="dropbtn">Tipo <i class="fa fa-caret-down"></i></button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="#">- Igrejas</a>
+                  <a href="#">- Ongs</a>
+                </div>
+              </div> 
+        </div>
         <div class="row" *ngIf="filteredInstitution else loading">
             <div *ngFor="let x of filteredInstitution">
                 <div (click)="handleInstitution(x._id)" class="card black">
