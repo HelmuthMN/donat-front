@@ -1,0 +1,93 @@
+.imagebox {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.imagebox img {
+    height: 100%;
+    width: 100%;
+}
+
+.imagebox::before {
+    content:"";
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    background-color:rgba(0,0,0,0.7);
+    height: 256px;
+    width: 256px;
+    border-radius: 100%;
+    transition: all 1s;
+}
+
+.imagebox:hover::before {
+    left: -50%;
+    width: 200%;
+} 
+
+.content {
+    height: 256px;
+    width: 256px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    
+}
+
+.imagebox:hover .content {
+    opacity:1;
+}
+
+.content h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.content ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0px 0px 10px -20px;
+
+}
+
+.content ul li {
+    margin: 5px 10px
+}
+
+.content ul li a {
+    text-decoration: none;
+}
+
+.content ul li a fa-icon {
+    color: black;
+    font-size: 40px;
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 1s;
+}
+
+.imagebox:hover .content ul li a fa-icon:hover {
+    background-color: blue;
+}
+
+.imagebox:hover .content ul li a #git:hover {
+    background-color:#696969;
+}
+
+#fundo{
+    background-color: white;
+}

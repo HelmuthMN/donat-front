@@ -1,54 +1,106 @@
-<head>
-    <link rel="stylesheet" href=
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
-</head>
-
-<div id="footer" class="container"></div>
 <footer>
-  <!-- Footer main -->
-  <section class="ft-main">
-    <div class="ft-main-item">
-      <h2 class="ft-title">Sobre Nós</h2>
-      <ul>
-        <li>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente assumenda maxime porro ut unde, fuga earum beatae, et itaque inventore fugit consequatur quo delectus. Ut sed labore expedita sapiente omnis!
-        </li>
-      </ul>
+  <div class="container-fluid " id="bgfooter">
+    <hr>
+    <!-- Inicio do Footer-->
+    <div class="row ml-0 mr-0 mb-3">
+      <!--começo texto resumido sobre nós-->
+      <div class="col-md-4 mb-3">
+        <div class="row mb-3 ">
+          <div class="text-center col-md-12 p-0 pt-2 mt-4 sobrenos">
+            <h4 class="text-sm-center">Sobre Nós</h4>
+          </div>
+        </div>
+        <p class="text-justify mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+          of type and scrambled it to make a type specimen book.</p>
+      </div>
+      <!-- final texto resumido sobre nós-->
+      <!-- começo texto resumido entre em contato-->
+      <div class="col-md-4 justify-content-center">
+        <div class="col-md-12 mb-0 media mt-3">
+          <fa-icon [icon]="faMapMarkerAlt" class="align-self-center fa-1x "></fa-icon>
+          <div class="media-body">
+            <h6 class="mt-4 ml-4 text-sm-left mb-0">Endereço</h6>
+            <p class="ml-4 text-sm-left mb-0 mt-0">R. João Pessoa, 212 - Centro, Santos - SP, 11013-002</p>
+          </div>
+        </div>
+        <div class="col-md-12 mb-0 media mt-0 ">
+          <fa-icon [icon]="faPhoneAlt" class="align-self-center fa-1x "></fa-icon>
+          <div class="media-body">
+            <h6 class="mt-4 ml-3 text-sm-left mb-0">Telefone</h6>
+            <p class="text-sm-left pl-3">(13) 3221-5417</p>
+          </div>
+        </div>
+        <div class="col-md-12 mb-0 media mb-3">
+          <fa-icon [icon]="faEnvelope" class="align-self-center fa-1x mb-2 "></fa-icon>
+          <div class="media-body">
+            <h6 class="mt-4 ml-3 text-sm-left mb-0">E-mail</h6>
+            <p class="ml-3 text-sm-left">http://www.ninfasnightclub.com.br</p>
+          </div>
+        </div>
+      </div>
+      <!-- final texto resumido entre em contato-->
+      <!-- começo texto resumido seja parceiro-->
+      <div class="col-md-4 ml-0 pl-0">
+        <h4 class="text-center mb-3 mt-4 pt-2">Seja um Parceiro</h4>
+        <p class="text-justify mt-4 pt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book.</p>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-outline-primary justify-content-end" data-toggle="modal"
+            data-target="#siteModal">Contate-nos</button>
+        </div>
+      </div>
+      <!-- final texto resumido seja parceiro-->
+      <!-- começo modal -->
+      <div class="modal " tabindex="-1" role="dialog" id="siteModal">
+        <div class="modal-dialog " role="document">
+          <div class="modal-content modalbg">
+            <div class="modal-header">
+              <h5 class="modal-title text-align-center">Seja Parceiro</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="col-md-12">
+                <h5 class="text-center mb-5"></h5>
+                <form>
+                  <div class="form-group boxCadastro">
+                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Insira seu nome">
+                  </div>
+                  <div class="form-group boxCadastro">
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Insira seu e-mail">
+                  </div>
+                  <div class="form-group boxCadastro">
+                    <input type="tel" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Insira seu telefone">
+                  </div>
+                  <div class="form-group boxCadastro">
+                    <textarea class="form-control textar" id="exampleFormControlTextarea1" rows="3"
+                      placeholder="Insira uma mensagem aqui"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                data-target="#siteModal">Enviar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="ft-main-item">
-      <h2 class="ft-title">Resources</h2>
-      <ul>
-        <li><a href="#">Docs</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
+    <!-- final modal-->
+    <!-- Final do Footer-->
+    <!-- Começo Direitos Reservados-->
+    <div class="row text-center color">
+      <div class="col-md-12 mt-4 ">
+        <p class="">2022 &copy; Copyright Donat Inc. </p>
+      </div>
     </div>
-    <div class="ft-main-item">
-      <h2 class="ft-title">Contact</h2>
-      <ul>
-        <li><a href="#">Help</a></li>
-        <li><a href="#">Sales</a></li>
-        <li><a href="#">Advertise</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Footer social -->
-  <section class="ft-social">
-    <ul class="ft-social-list">
-      <li><a href="https://twitter.com/oednaldopereira" target="_blank"><i class="fab fa-twitter"></i></a></li>
-      <li><a href="https://github.com/luantorrex" target="_blank"><i class="fab fa-github"></i></a></li>
-      <li><a href="https://youtu.be/HOAKXWTtIuE" target="_blank"><i class="fab fa-youtube"></i></a></li>
-    </ul>
-  </section>
-
-  <!-- Footer legal -->
-  <section class="ft-legal">
-    <ul class="ft-legal-list">
-      <li><a href="#">Terms &amp; Conditions</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-      <li>&copy; 2021 Copyright Donat Inc.</li>
-    </ul>
-  </section>
+  </div>
+  <!--Final Direitos Reservados-->
 </footer>
-
-

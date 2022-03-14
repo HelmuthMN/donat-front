@@ -9,6 +9,8 @@ import { HomepageModule } from './modules/homepage/homepage.module';
 import { InstitutionModule } from './modules/institution/institution.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AuthTokenInterceptor } from './core/services/interceptors/auth-token.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AboutpageModule } from './modules/about/about.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { AuthTokenInterceptor } from './core/services/interceptors/auth-token.in
     AccountModule,
     HomepageModule,
     InstitutionModule,
+    FontAwesomeModule,
+    AboutpageModule,
     SharedModule
   ],
   providers: [
