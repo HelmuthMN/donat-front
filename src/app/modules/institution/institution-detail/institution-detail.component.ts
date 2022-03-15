@@ -23,12 +23,7 @@ export class InstitutionDetailComponent implements OnInit {
 
   handleLoad() {
     const id = this.route.snapshot.queryParams['_id'];
-    console.log(id)
-    this.route.queryParams
-      .subscribe(params => {
-        console.log(params); // { orderby: "price" }
-      }
-    );
+    
     if(id!= null){
       this.institutionService.getInstitutionByID(id).pipe(take(1)).subscribe(
         response => {
