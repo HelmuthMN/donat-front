@@ -19,7 +19,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     FormsModule
   ],
   exports: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    UserProfileComponent
   ]
 })
 export class AccountModule { }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about-page/about.component';
 import { AboutPageRoutingModule } from './about-routing.module';
-
+import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -12,12 +12,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     AboutPageRoutingModule,
-    FontAwesomeModule 
+    FontAwesomeModule,
+    RouterModule
   ],
   exports: [
     AboutComponent,
   ]
 })
-export class AboutpageModule {
-
- }
+export class AboutPageModule { }

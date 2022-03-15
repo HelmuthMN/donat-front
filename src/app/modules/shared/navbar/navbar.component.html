@@ -30,20 +30,20 @@
         </li>
         <li><a>|</a></li>
         <li class="navbar-item">
-          <a class="navbar-link" routerLink="/instituicoes" routerLinkActive="active">
+          <a class="navbar-link" routerLink="/institutions" routerLinkActive="active">
             Instituições
           </a>
         </li>
         <li><a>|</a></li>
         <div class="navbar-link" *ngIf="handleLoggedIn() == false">
           <li class="navbar-item">
-            <a class="navbar-link" routerLink="/login" routerLinkActive="active">
+            <a class="navbar-link" routerLink="/account/login" routerLinkActive="active">
               Login
             </a>
           </li>
           <li><a>|</a></li>
           <li class="navbar-item">
-            <a class="navbar-link" routerLink="/register" routerLinkActive="active">
+            <a class="navbar-link" routerLink="/account/register" routerLinkActive="active">
             Registrar
             </a>
           </li>

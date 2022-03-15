@@ -13,17 +13,17 @@ const routes: Routes = [
     loadChildren: () => import('./modules/account/account.module').then(m => m.AccountModule)
   },
   {
-    path: 'institution',
+    path: 'institutions',
     loadChildren: () => import('./modules/institution/institution.module').then(m => m.InstitutionModule)
   },
   {
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   },
-   {
+  {
     path: 'about',
-    loadChildren: () => import('./modules/about/about.module').then(m => m.AboutpageModule)
-  }
+    loadChildren: () => import('./modules/about/about.module').then(m => m.AboutPageModule)
+  },
 ];
 
 @NgModule({

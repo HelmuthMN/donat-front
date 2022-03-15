@@ -4,13 +4,13 @@ import { AboutComponent } from './about-page/about.component';
 
 const routes: Routes = [
   { 
-	path: 'about', 
-    	component: AboutComponent,
-  }
+	  path: '', 
+    component: AboutComponent,
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AboutPageRoutingModule { }

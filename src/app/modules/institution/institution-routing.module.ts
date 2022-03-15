@@ -5,11 +5,11 @@ import { InstitutionPageComponent } from "./institution-page/institution-page.co
 
 const routes: Routes = [
     {
-        path: 'instituicoes',
+        path: '',
         component: InstitutionPageComponent
     },
     {
-        path: 'instituicao/:_id',
+        path: 'i',
         component: InstitutionDetailComponent
     }
 ];
