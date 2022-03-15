@@ -12,6 +12,9 @@ import { InstitutionService } from 'src/app/core/services/institution/institutio
 export class InstitutionDetailComponent implements OnInit {
   institution!: Institution;
 
+  latitude: number = -23.98206;
+  longitude: number = -46.30227;
+
   constructor(
     private route: ActivatedRoute,
     private institutionService: InstitutionService

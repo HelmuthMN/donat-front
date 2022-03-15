@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { UserDropdownComponent } from './buttons/user-dropdown/user-dropdown.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
-    UserDropdownComponent
+    UserDropdownComponent,
+    MapComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    MapComponent
   ]
 })
 export class SharedModule { }
