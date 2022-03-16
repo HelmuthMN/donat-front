@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ViewpageComponent } from './viewpage/viewpage.component';
 import { HomepageRoutingModule } from './homepage-routing.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { HomepageRoutingModule } from './homepage-routing.module';
   ],
   imports: [
     CommonModule,
-    HomepageRoutingModule
+    HomepageRoutingModule,
+    FontAwesomeModule
   ],
   exports: [
     ViewpageComponent,

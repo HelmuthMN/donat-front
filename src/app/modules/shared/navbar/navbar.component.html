@@ -11,12 +11,38 @@
     </button>
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
-        <li class="navbar-item" *ngIf="isAdmin"><a class="navbar-link" routerLink="/admin">Admin Area</a></li>
-        <li class="navbar-item"><a class="navbar-link" routerLink="#" (click)="goToBottom()">About</a></li>
-        <li class="navbar-item"><a class="navbar-link" routerLink="/instituicoes" routerLinkActive="active">Instituições</a></li>
+        <li class="navbar-item"><a class="navbar-link" routerLink="/home" routerLinkActive="active"> Home </a></li>
+        <li><a>|</a></li>
+        <li class="navbar-item" *ngIf="isAdmin">
+          <a class="navbar-link" routerLink="/admin">
+            Admin Area
+          </a>
+        </li>
+        <li><a>|</a></li>
+        <li class="navbar-item">
+          <a class="navbar-link" routerLink="/about" routerLinkActive="active">
+            About
+          </a>
+        </li>
+        <li><a>|</a></li>
+        <li class="navbar-item">
+          <a class="navbar-link" routerLink="/institutions" routerLinkActive="active">
+            Instituições
+          </a>
+        </li>
+        <li><a>|</a></li>
         <div class="navbar-link" *ngIf="handleLoggedIn() == false">
-          <li class="navbar-item"><a class="navbar-link" routerLink="/login" routerLinkActive="active">Login</a></li>
-          <li class="navbar-item"><a class="navbar-link" routerLink="/register" routerLinkActive="active">Registrar</a></li>
+          <li class="navbar-item">
+            <a class="navbar-link" routerLink="/account/login" routerLinkActive="active">
+              Login
+            </a>
+          </li>
+          <li><a>|</a></li>
+          <li class="navbar-item">
+            <a class="navbar-link" routerLink="/account/register" routerLinkActive="active">
+            Registrar
+            </a>
+          </li>
         </div>
         <div class="navbar-link" *ngIf="handleLoggedIn() == true">
           <app-user-dropdown></app-user-dropdown>
@@ -25,4 +51,3 @@
     </div>
   </nav>
 </header>
-

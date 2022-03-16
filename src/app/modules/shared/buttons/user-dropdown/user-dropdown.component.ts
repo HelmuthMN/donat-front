@@ -34,7 +34,7 @@ export class UserDropdownComponent implements OnInit {
     toogleMenu?.classList.toggle('active')
   }
 
-   submitLogout(): void{
+  submitLogout(): void{
     //logout da api
     this.authService.logout();
     //retira os tokens do storage

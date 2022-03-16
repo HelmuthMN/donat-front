@@ -24,7 +24,7 @@ export class InstitutionPageComponent implements OnInit {
   }
   
   handleInstitution(id: string) {
-    this.router.navigate(['/instituicao/' + id])
+    this.router.navigate(['/institutions/i/'], { queryParams: { _id: id } })
   }
 
   handleInput(value: string){ 
@@ -34,5 +34,9 @@ export class InstitutionPageComponent implements OnInit {
             .toLowerCase()
             .includes(value.toLowerCase())
       );
+  }
+
+  handleDropdown() {
+    document.getElementById("myDropdown")?.classList.toggle("show");
   }
 }

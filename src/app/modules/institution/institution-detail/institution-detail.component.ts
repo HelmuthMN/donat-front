@@ -12,6 +12,9 @@ import { InstitutionService } from 'src/app/core/services/institution/institutio
 export class InstitutionDetailComponent implements OnInit {
   institution!: Institution;
 
+  latitude: number = -23.98206;
+  longitude: number = -46.30227;
+
   constructor(
     private route: ActivatedRoute,
     private institutionService: InstitutionService
@@ -22,7 +25,8 @@ export class InstitutionDetailComponent implements OnInit {
   }
 
   handleLoad() {
-    const id = this.route.snapshot.paramMap.get("_id")
+    const id = this.route.snapshot.queryParams['_id'];
+    
     if(id!= null){
       this.institutionService.getInstitutionByID(id).pipe(take(1)).subscribe(
         response => {
