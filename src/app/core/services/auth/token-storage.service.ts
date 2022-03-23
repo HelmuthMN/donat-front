@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 const TOKEN = 'access_token';
 const USER =  'username';
-const EMAIL = 'email';
+const IS_ADMIN = 'is_admin';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +24,10 @@ export class TokenStorageService {
     return localStorage.getItem(TOKEN);
   }
 
-  public saveUser(user: any): void {
+  public saveUser(user: any, isAdmin: any): void {
     localStorage.removeItem(USER);
     localStorage.setItem(USER, user);
+    localStorage.setItem(IS_ADMIN, isAdmin);
   }
 
   public getUser(): any {
@@ -36,6 +37,15 @@ export class TokenStorageService {
     }
 
     return null;
+  }
+
+  public getIsAdmin(): any {
+    const isAdmin = localStorage.getItem(IS_ADMIN)
+    if (isAdmin){
+      return isAdmin
+    }
+
+    return false;
   }
 
   // public setEmail(email: string): any {

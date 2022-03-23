@@ -8,7 +8,7 @@ import { TokenStorageService } from 'src/app/core/services/auth/token-storage.se
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
-  isAdmin: boolean = true;
+  isAdmin!: boolean;
   roles: string[] = [];
 
   constructor(
@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
   // se não = false
   handleLoggedIn() {
     if (this.tokenStorage.getToken()){
+      this.isAdmin = this.tokenStorage.getIsAdmin()
       this.isLoggedIn = true;
       return this.isLoggedIn;
     }

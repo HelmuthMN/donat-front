@@ -5,7 +5,10 @@ export interface Institution {
     cep: string,
     url: string,
     image: string,
-	phone_number: string
+	phone_number: string,
+    institution_type: string,
+    latitude: number,
+    longitude: number
 }
 
 export interface InstitutionGet {
@@ -16,5 +19,8 @@ export interface InstitutionGet {
     cep: string,
     url: string,
     image: string,
-	phone_number: string
+	phone_number: string,
+    institution_type: string,
+    latitude: number,
+    longitude: number 
 }
