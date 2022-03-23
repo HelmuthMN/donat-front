@@ -4,16 +4,21 @@ import { InstitutionPageComponent } from './institution-page/institution-page.co
 import { InstitutionRoutingModule } from './institution-routing.module';
 import { InstitutionDetailComponent } from './institution-detail/institution-detail.component';
 import { SharedModule } from '../shared/shared.module';
+import { InstitutionRegisterComponent } from './institution-register/institution-register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     InstitutionPageComponent,
-    InstitutionDetailComponent
+    InstitutionDetailComponent,
+    InstitutionRegisterComponent
   ],
   imports: [
     CommonModule,
     InstitutionRoutingModule,
-    SharedModule
+    ReactiveFormsModule,
+    SharedModule,
+
   ],
   exports: [
     InstitutionPageComponent
