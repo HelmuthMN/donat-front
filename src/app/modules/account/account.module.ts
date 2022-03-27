@@ -5,6 +5,9 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountRoutingModule } from './account-routing.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {DividerModule} from 'primeng/divider';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     CommonModule,
     AccountRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DividerModule,
+    ButtonModule,
+    InputTextModule
   ],
   exports: [
     LoginComponent,

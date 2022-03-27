@@ -1,82 +1,83 @@
 @import "../../../../shared/variables";
 
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
     margin-top: 3.8em;
 }
 
-.card .profile-img-card{
-    max-width: 20em;
-    max-height: 20em;
-    border: 0.2em solid black;
-    border-radius: 50%;
-}
-
-.card form {
-    margin-top: 2em;
-}
-
-.card .form-group {
-    font-size: 1.05em;
-    margin-bottom: 1.1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.card .form-group label {
-    font-size: 1.26em;
-    font-weight: bold;
+:host ::ng-deep .dark-panel.p-button {
+    background-color: $primary-color;
     color: black;
-    // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    // -webkit-text-stroke: 0.04em black; /* width and color */
-}
-
-//inputs
-.card .form-group .form-control {
-    font-size: 0.9em;
-    height: 1.8em;
-    width: 18.5em;
-    padding: 2.5px 15px;
     border: 0.15em solid black;
-    border-radius: 5em;
 }
 
-::-webkit-input-placeholder { /* Edge */
-  font-size: 1.12em;
-  color: black;
-}
+// .card .profile-img-card{
+//     max-width: 20em;
+//     max-height: 20em;
+//     border: 0.2em solid black;
+//     border-radius: 50%;
+// }
 
-:-ms-input-placeholder { /* Internet Explorer */
-    font-size: 1.12em;
-    color: black;  
-}
+// .card form {
+//     margin-top: 2em;
+// }
 
-::placeholder {
-  font-size: 1.12em;
-  color: black;
-}
+// .card .form-group {
+//     font-size: 1.05em;
+//     margin-bottom: 1.1em;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .card .form-group label {
+//     font-size: 1.26em;
+//     font-weight: bold;
+//     color: black;
+//     // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+//     // -webkit-text-stroke: 0.04em black; /* width and color */
+// }
+
+// //inputs
+// .card .form-group .form-control {
+//     font-size: 0.9em;
+//     height: 1.8em;
+//     width: 18.5em;
+//     padding: 2.5px 15px;
+//     border: 0.15em solid black;
+//     border-radius: 5em;
+// }
+
+// ::-webkit-input-placeholder { /* Edge */
+//   font-size: 1.12em;
+//   color: black;
+// }
+
+// :-ms-input-placeholder { /* Internet Explorer */
+//     font-size: 1.12em;
+//     color: black;  
+// }
+
+// ::placeholder {
+//   font-size: 1.12em;
+//   color: black;
+// }
 
 
-.card .form-group .btn {
-    margin-top: 1em;
-    background-color: $primary-color; /* Green */
-    border: 0.15em solid black;
-    border-radius: 5em;
-    height: 2.5em;
-    width: 15em;
-    color: black;
-    padding: 5px 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    cursor: pointer;
-    // text-decoration: none;
-    display: inline-block;
-    font-size: 1.1em;
-    font-weight: bold;
-}
+// .card .form-group .btn {
+//     margin-top: 1em;
+//     background-color: $primary-color; /* Green */
+//     border: 0.15em solid black;
+//     border-radius: 5em;
+//     height: 2.5em;
+//     width: 15em;
+//     color: black;
+//     padding: 5px 15px;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+//     text-align: center;
+//     cursor: pointer;
+//     // text-decoration: none;
+//     display: inline-block;
+//     font-size: 1.1em;
+//     font-weight: bold;
+// }
