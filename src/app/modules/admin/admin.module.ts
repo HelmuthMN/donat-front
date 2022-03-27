@@ -3,9 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TableModule } from 'primeng/table';
+import {TableModule} from 'primeng/table';
+// import { TableModule } from 'primeng/table'
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
+import {DialogModule} from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
 
 
 @NgModule({
@@ -16,9 +20,11 @@ import { RatingModule } from 'primeng/rating';
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    TableModule,
     ButtonModule,
-    RatingModule
+    RatingModule,
+    TableModule,
+    DialogModule,
+    ConfirmDialogModule
   ],
   exports: [
     AdminPageComponent
