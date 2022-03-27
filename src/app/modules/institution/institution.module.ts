@@ -18,7 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     InstitutionRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-
   ],
   exports: [
     InstitutionPageComponent
