@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { UserDropdownComponent } from './buttons/user-dropdown/user-dropdown.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MapComponent } from './map/map.component';
+import {DividerModule} from 'primeng/divider';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,14 @@ import { MapComponent } from './map/map.component';
     FooterComponent,
     UserDropdownComponent,
     MapComponent,
+    
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DividerModule,
+    ButtonModule
   ],
   exports: [
     NavbarComponent,

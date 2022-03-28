@@ -9,7 +9,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'account',
+    path: 'conta',
     loadChildren: () => import('./modules/account/account.module').then(m => m.AccountModule)
   },
   {

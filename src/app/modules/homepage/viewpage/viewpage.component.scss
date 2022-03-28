@@ -1,3 +1,4 @@
+
 .placeholder {
   display: flex;
   justify-content: center;
@@ -6,15 +7,34 @@
   margin-top: 2em;
 }
 
-.jumbotron {
-  background-color: #87CEFA;
-}
-
 .card-footer{
   background-color: #f0ffea;
 }
 #fundo{
   background-color: #fbfbf8;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 5em;
+  padding-bottom: 3.5em;
+}
+
+.flex {
+  justify-content: center;
+}
+.pi {
+  display: flex;
+  justify-content: center;
+}
+
+.infos{
+  background-color: #87CEFA;
+  padding: 1em;
+  height: 15em;
+  padding-right: 0.5em;
+}
+
+.institution-card {
+  padding-top: 3em;
 }
 
 .carousel-item {
@@ -23,14 +43,33 @@
     object-fit: fill;
 }
 
-.faHandHoldingHeart {
+.join{
+  padding-top: 3em;
+}
+
+.pi-heart {
   color: #f65c78;
 }
 
-.faAppleWhole {
+.pi-shopping-cart {
   color: #fccb8f;
 }
 
-.faAddressCard {
+.pi-id-card {
   color: #a6f349;
+}
+
+.product-item {
+    .product-item-content {
+        border: 1px solid var(--surface-d);
+        border-radius: 3px;
+        margin: .3rem;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .product-image {
+        width: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    }
 }

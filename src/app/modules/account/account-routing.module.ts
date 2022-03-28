@@ -6,15 +6,15 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'logar',
     component: LoginComponent
   },
   {
-    path: 'register',
+    path: 'registrar',
     component: RegisterComponent
   },
   {
-    path: 'user-profile',
+    path: 'perfil',
     component: UserProfileComponent
   }
 ];

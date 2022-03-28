@@ -3,6 +3,12 @@ import { TokenStorageService } from 'src/app/core/services/auth/token-storage.se
 import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons';
 import { faAppleWhole } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+
+interface carouselItem {
+  image: string,
+  description: string
+}
+
 @Component({
   selector: 'app-viewpage',
   templateUrl: './viewpage.component.html',
@@ -14,13 +20,51 @@ export class ViewpageComponent implements OnInit {
   faAppleWhole = faAppleWhole;
   faAddressCard = faAddressCard;
   username: any;
+	responsiveOptions;
+  carouselItems: carouselItem[] = [];
 
   constructor(
     private tokenStorage: TokenStorageService
-  ) { }
+  ) {
+    this.responsiveOptions = [
+            {
+                breakpoint: '1024px',
+                numVisible: 3,
+                numScroll: 3
+            },
+            {
+                breakpoint: '768px',
+                numVisible: 2,
+                numScroll: 2
+            },
+            {
+                breakpoint: '560px',
+                numVisible: 1,
+                numScroll: 1
+            }
+        ];
+   }
 
   ngOnInit(): void {
     this.username = this.tokenStorage.getUser()
+    this.carouselItems = [
+      {
+        image:"https://cdn.pixabay.com/photo/2019/06/27/04/35/organ-donation-4301527__340.jpg",
+        description:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      {
+        image:"https://cdn.discordapp.com/attachments/746160159855738953/957770574208327720/doacao20de20sangue.png",
+        description:"yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+      },
+      {
+        image:"https://i.pinimg.com/736x/2e/6f/c3/2e6fc38b8adf29204eb098bc6f3fedc2.jpg",
+        description:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      {
+        image:"https://static.vecteezy.com/ti/vetor-gratis/t2/1879882-conceito-de-doacao-e-caridade-gr%C3%A1tis-vetor.jpg",
+        description:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    ]
   }
 
 }

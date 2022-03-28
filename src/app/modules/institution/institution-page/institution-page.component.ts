@@ -24,7 +24,7 @@ export class InstitutionPageComponent implements OnInit {
   }
   
   handleInstitution(id: string) {
-    this.router.navigate(['/institutions/i/'], { queryParams: { _id: id } })
+    this.router.navigate(['/instituicoes/i/'], { queryParams: { _id: id } })
   }
 
   handleInput(value: string){ 
