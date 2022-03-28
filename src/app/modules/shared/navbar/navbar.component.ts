@@ -15,14 +15,12 @@ export class NavbarComponent implements OnInit {
     private tokenStorage: TokenStorageService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+      this.isAdmin = this.tokenStorage.getIsAdmin()
+   }
 
-  // checa se há algum token vinda daquela requisição
-  // se tiver um token = logado
-  // se não = false
   handleLoggedIn() {
     if (this.tokenStorage.getToken()){
-      this.isAdmin = this.tokenStorage.getIsAdmin()
       this.isLoggedIn = true;
       return this.isLoggedIn;
     }
@@ -31,5 +29,9 @@ export class NavbarComponent implements OnInit {
 
   goToBottom(){
     window.scrollTo(0,document.body.scrollHeight);
+  }
+
+  handleIsAdmin(): boolean{
+    if(this.isAdmin){return true} return false;
   }
 }
