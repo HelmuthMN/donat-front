@@ -6,6 +6,8 @@ import { InstitutionDetailComponent } from './institution-detail/institution-det
 import { SharedModule } from '../shared/shared.module';
 import { InstitutionRegisterComponent } from './institution-register/institution-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     InstitutionRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    DropdownModule,
+    FormsModule
   ],
   exports: [
     InstitutionPageComponent
