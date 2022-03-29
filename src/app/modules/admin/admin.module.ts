@@ -9,8 +9,8 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import {DialogModule} from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-
-
+import { MessagesModule } from 'primeng/messages';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     RatingModule,
     TableModule,
     DialogModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    MessagesModule,
+    ToastModule
   ],
   exports: [
     AdminPageComponent

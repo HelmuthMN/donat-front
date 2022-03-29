@@ -10,15 +10,17 @@
         <p>{{institution.phone_number}}</p>
         <p>{{institution.email}}</p>
     </div>
+
+    <div class="map">
+        <app-map
+            [lat]="institution.latitude"
+            [lon]="institution.longitude"
+            [zoom]="16"
+        >
+        ></app-map>
+    </div>
 </div>
 
-<div class="map">
-    <app-map
-        [lat]="institution.latitude"
-        [lon]="institution.longitude"
-        [zoom]="16"
-    >
-    ></app-map>
-</div>
+
 
 

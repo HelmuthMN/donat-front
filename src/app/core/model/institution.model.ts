@@ -24,3 +24,16 @@ export interface InstitutionGet {
     latitude: number,
     longitude: number 
 }
+
+export interface InstitutionRequest {
+    _id: string,
+    name: string,
+    email: string,
+	address: string,
+    cep: string,
+    url: string,
+    image: string,
+	phone_number: string,
+    institution_type: string,
+    request_text: string
+}
