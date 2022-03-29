@@ -1,3 +1,5 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div *ngIf="routeLoading" class="loading">Aguarde...</div>
+<router-outlet *ngIf="!routeLoading"></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 <app-footer></app-footer>
