@@ -1,3 +1,18 @@
+.container {
+    padding-top: 2em;
+    padding-left: 8em;
+    padding-bottom: 5em;
+}
+
+.card {
+    padding: 2em;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+}
+
 .imagebox {
     position: relative;
     width: 256px;

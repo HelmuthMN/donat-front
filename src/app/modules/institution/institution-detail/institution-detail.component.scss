@@ -1,24 +1,12 @@
-.institutionBody {
-    margin-top: 3.8em;
-    // border: 0.2em solid black;
-    // width: 40em;
-    // height: 40em;
-    // padding: 0.2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.institutionBody img {
-    max-width: 65em;
-    max-height: 65em;
+.imgInstitution img {
+    max-width: 25em;
+    max-height: 25em;
     border: 0.2em solid black;
     border-radius: 1em;
 }
 
-.title {
-    font-size: 1.3em;
-    margin-bottom: -1em;
+.titulo {
+    text-align: center;
 }
 
 .info {
@@ -29,5 +17,11 @@
 
 .map {
     margin: 0.2em auto; 
+    margin-bottom: 4em;
+    margin-top: 1em;
     width: 800px;
+}
+
+.informacoes {
+    display: flex;
 }

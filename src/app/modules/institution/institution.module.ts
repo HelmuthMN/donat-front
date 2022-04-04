@@ -6,6 +6,7 @@ import { InstitutionDetailComponent } from './institution-detail/institution-det
 import { SharedModule } from '../shared/shared.module';
 import { InstitutionRegisterComponent } from './institution-register/institution-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {DividerModule} from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     InstitutionRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    DividerModule,
   ],
   exports: [
     InstitutionPageComponent

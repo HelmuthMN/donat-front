@@ -4,6 +4,8 @@ import { AboutComponent } from './about-page/about.component';
 import { AboutPageRoutingModule } from './about-routing.module';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {DividerModule} from 'primeng/divider';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     AboutPageRoutingModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
+    DividerModule,
+    ButtonModule
   ],
   exports: [
     AboutComponent,
