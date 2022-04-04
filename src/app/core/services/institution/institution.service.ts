@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, shareReplay, tap, throwError } from 'rxjs';
-import { Institution, InstitutionGet, InstitutionRequest } from 'src/app/core/model/institution.model';
+import { Institution, InstitutionGet, RequestInstitution } from 'src/app/core/model/institution.model';
 import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl + '/instituicao'
@@ -35,5 +35,14 @@ export class InstitutionService {
       phone_number: phone_number,
       institution_type: institution_type
     }, {withCredentials:true});
+  }
+
+  createRequestInstitution(request: RequestInstitution, file: any): Observable<any> {
+     const formData = new FormData(); 
+     console.log(file)
+        
+      // Store form name as "file" with file data
+    //   formData.append("icon", file, file.name);
+    return this.http.post(`${environment.apiUrl}/institution_request`, {request, formData});
   }
 }

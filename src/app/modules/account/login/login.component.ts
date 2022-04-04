@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-import {DividerModule} from 'primeng/divider';
 
 import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
 

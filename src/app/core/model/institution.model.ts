@@ -25,8 +25,7 @@ export interface InstitutionGet {
     longitude: number 
 }
 
-export interface InstitutionRequest {
-    _id: string,
+export interface RequestInstitution {
     name: string,
     email: string,
 	address: string,

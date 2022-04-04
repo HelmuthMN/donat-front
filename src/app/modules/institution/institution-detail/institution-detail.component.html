@@ -1,26 +1,40 @@
-<div class="institutionBody" *ngIf="institution">
-    <img src="{{institution.image}}" alt="">
-    <div class="title">
-        <h1>{{institution.name}}</h1>
-    </div>
-    <div class="info">    
-        <p>{{institution.url}}</p>
-        <p>{{institution.address}}</p>
-        <p>{{institution.cep}}</p>
-        <p>{{institution.phone_number}}</p>
-        <p>{{institution.email}}</p>
-    </div>
-
-    <div class="map">
-        <app-map
-            [lat]="institution.latitude"
-            [lon]="institution.longitude"
-            [zoom]="16"
-        >
-        ></app-map>
+<div class="card">
+    <h1 class="titulo">{{institution.name}}</h1>
+    <p-divider></p-divider>
+    <div class="grid imgInstitution">
+        <div class="col-6 flex align-items-center justify-content-center">
+            <div class="p-fluid">
+                <img src="{{institution.image}}" alt="">
+            </div>
+        </div>
+        
+        <div class="col-6 flex align-items-center justify-content-center">
+            <div class="info">
+                <div class="card">
+                    <h3>Informações</h3>
+                    <!-- <p-divider></p-divider> -->
+                    <p-divider></p-divider>
+                    <p class="informacoes">Endereço : {{institution.address}}</p>
+                    <p-divider></p-divider>
+                    <p class="informacoes">CEP : {{institution.cep}}</p>
+                    <p-divider></p-divider>
+                    <p class="informacoes">Telefone : {{institution.phone_number}}</p>
+                    <p-divider></p-divider>
+                    <p-button styleClass="p-button-outlined">
+                        <a href="{{institution.url}}" target="_blank" class="informacoes"><span class="ml-2 font-bold">Ir para o Site</span></a>
+                    </p-button>
+                    <p-button styleClass="p-button-outlined">
+                        <a href="mailto:{{institution.email}}" target="_blank" class="informacoes"><span class="ml-2 font-bold">Enviar Email</span></a>
+                    </p-button>
+                    <p-divider></p-divider>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-
-
-
+<p-divider></p-divider>
+<div class="map">
+    <h1 class="titulo">Localização</h1>
+    <app-map [lat]="institution.latitude" [lon]="institution.longitude" [zoom]="16">
+    </app-map>
+</div>
