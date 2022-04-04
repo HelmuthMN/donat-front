@@ -8,13 +8,14 @@ import { InstitutionModule } from './modules/institution/institution.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AuthTokenInterceptor } from './core/services/interceptors/auth-token.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     HomepageModule,

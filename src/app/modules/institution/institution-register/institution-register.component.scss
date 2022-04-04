@@ -1,85 +1,96 @@
 @import "../../../../shared/variables";
 
-.institution-body {
+.card{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.institution-body {
-    display: flex;
-    flex-direction: column;
+.grid {
+    padding-top: 3em;
     justify-content: center;
-    height: 100%;
-    align-items: center;
-    margin-top: 3.8em;
 }
 
-.institution-body .profile-img-institution-body{
-    max-width: 20em;
-    max-height: 20em;
-    border: 0.2em solid black;
-    border-radius: 50%;
-}
-
-.institution-body form {
-    margin-top: 2em;
-}
-
-.institution-body .form-group {
-    font-size: 1.05em;
-    margin-bottom: 1.1em;
+.p-fluid, form{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+// .institution-body {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     height: 100%;
+//     align-items: center;
+//     margin-top: 3.8em;
+// }
 
-.institution-body .form-group label {
-    font-size: 1.2em;
-    padding: 0.3em;
-    font-weight: bold;
-    color: black;
-}
+// .institution-body .profile-img-institution-body{
+//     max-width: 20em;
+//     max-height: 20em;
+//     border: 0.2em solid black;
+//     border-radius: 50%;
+// }
 
-//inputs
-.institution-body .form-group .form-control {
-    font-size: 0.9em;
-    height: 1.5em;
-    width: 18.5em;
-    padding: 2.5px 15px;
-    border: 0.15em solid black;
-    border-radius: 5em;
-}
+// .institution-body form {
+//     margin-top: 2em;
+// }
 
-::-webkit-input-placeholder { /* Edge */
-  font-size: 1.12em;
-  color: black;
-}
+// .institution-body .form-group {
+//     font-size: 1.05em;
+//     margin-bottom: 1.1em;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
 
-:-ms-input-placeholder { /* Internet Explorer */
-    font-size: 1.12em;
-    color: black;  
-}
+// .institution-body .form-group label {
+//     font-size: 1.2em;
+//     padding: 0.3em;
+//     font-weight: bold;
+//     color: black;
+// }
 
-::placeholder {
-  font-size: 1.12em;
-  color: black;
-}
+// //inputs
+// // .institution-body .form-group .form-control {
+// //     font-size: 0.9em;
+// //     height: 1.5em;
+// //     width: 18.5em;
+// //     padding: 2.5px 15px;
+// //     border: 0.15em solid black;
+// //     border-radius: 5em;
+// // }
 
-.institution-body .form-group select  {
-//   position: relative;
-  display: block;
-  height: 2.2em;
-  width: 12.5em;
-  padding: 2.5px 15px;
-  margin: 0 auto;
-  border-radius: 5em;
-  border: 0.15em solid black;
-  background-color: white;
-  z-index: 10;
-}
+// ::-webkit-input-placeholder { /* Edge */
+//   font-size: 1.12em;
+//   color: black;
+// }
+
+// :-ms-input-placeholder { /* Internet Explorer */
+//     font-size: 1.12em;
+//     color: black;  
+// }
+
+// ::placeholder {
+//   font-size: 1.12em;
+//   color: black;
+// }
+
+// .institution-body .form-group select  {
+// //   position: relative;
+//   display: block;
+//   height: 2.2em;
+//   width: 12.5em;
+//   padding: 2.5px 15px;
+//   margin: 0 auto;
+//   border-radius: 5em;
+//   border: 0.15em solid black;
+//   background-color: white;
+//   z-index: 10;
+// }
 
 .institution-body .form-group .btn {
     margin-top: 1em;

@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras } from '@angular/router';
+import { faCropSimple } from '@fortawesome/free-solid-svg-icons';
+import { MessageService } from 'primeng/api';
 import { InstitutionService } from 'src/app/core/services/institution/institution.service';
+
+interface ITypes{
+    name: string,
+    value: string
+}
 
 @Component({
   selector: 'app-institution-register',
@@ -11,13 +18,23 @@ import { InstitutionService } from 'src/app/core/services/institution/institutio
 export class InstitutionRegisterComponent implements OnInit {
   
   form!: FormGroup;
-  types = ['Igreja Católica','Ong', 'Igreja Protestante', 'Sla'];
+  types: ITypes[];
+  selectedType?: string;
+  file?: File;
+  imgURL: any;
+  uploadedFiles: any[] = [];
 
 
   constructor(
     private formBuilder: FormBuilder,
     private institutionService: InstitutionService
-  ) { }
+  ) {
+    this.types=[
+      {name:'Igreja Católica', value:'catolica'},
+      {name:'Ong', value:'ong'}, 
+      {name:'Igreja Protestante', value:'protestante'}
+    ]
+   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -26,23 +43,28 @@ export class InstitutionRegisterComponent implements OnInit {
       address: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
       cep: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
       url: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      image: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
       phone_number: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      instituition_type: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
+      institution_type: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
+      request_text: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
     });
   }
 
   onSubmit(): void{
-    console.log(this.form.value)
-    localStorage.setItem('form-data', JSON.stringify(this.form.value || '{}'));
+    console.log(this.form?.value)
+     this.institutionService.createRequestInstitution(this.form?.value, this.file).subscribe(
+        data => alert("Instituição criada com sucesso"),
+        err => console.log('HTTP Error', err.errorMessage)
+      );
+  }
 
-    //  this.institutionService.createInstitution(this.form.get('name')?.value,this.form.get('email')?.value , this.form.get('address')?.value, 
-    //   this.form.get('cep')?.value, this.form.get('url')?.value, this.form.get('image')?.value, this.form.get('phone_number')?.value, this.form.get('institution_type')?.value).subscribe(
-    //     data => alert("Instituição criada com sucesso"),
-    //     err => console.log('HTTP Error', err.errorMessage)
-    //     // () =>  {
-    //     //   alert('salvo no banco')
-    //     // }
-    //   );
+  onFileSelected(event?: any) {
+    this.file = event.currentFiles[0];
+    let reader = new FileReader();
+    if(this.file){
+      reader.readAsDataURL(this.file); 
+      reader.onload = (_event) => { 
+        this.imgURL = reader.result;
+      }
+    }
   }
 }

@@ -17,7 +17,8 @@ export class UserService {
   
       // Create form data
       const formData = new FormData(); 
-        
+      
+      console.log(file)
       // Store form name as "file" with file data
       formData.append("icon", file, file.name);
         

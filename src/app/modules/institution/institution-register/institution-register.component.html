@@ -1,46 +1,56 @@
-<div class="institution-body">
-    <img src="https://images7.memedroid.com/images/UPLOADED796/5f68fa79802ae.jpeg" alt="">
-
-    <h1>Criar instituição</h1>
-    <form [formGroup]="form" name="form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="name">Nome</label>
-          <input type="text" class="form-control" placeholder="" name="name" formControlName="name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" placeholder="" name="email" formControlName="email" required />
-        </div>
-        <div class="form-group">
-          <label for="address">Endereço</label>
-          <input type="text" class="form-control" placeholder="" name="address" formControlName="address" required />
-        </div>
-        <div class="form-group">
-          <label for="url">Site da Instituição</label>
-          <input type="text" class="form-control" placeholder="" name="url" formControlName="url" required />
-        </div>
-        <div class="form-group">
-          <label for="cep">CEP</label>
-          <input type="text" class="form-control" placeholder="" name="cep" formControlName="cep" required />
-        </div>
-        <div class="form-group">
-          <label for="phone_number">Número de Telefone</label>
-          <input type="text" class="form-control" placeholder="" name="phone_number" formControlName="phone_number" required />
-        </div>
-        <div class="form-group">
-          <label for="image">Imagem da Instituição</label>
-          <input type="text" class="form-control" placeholder="" name="image" formControlName="image" required />
-        </div>
-        <div class="form-group">
-          <label for="gender">Gênero</label>
-          <select formControlName="institution_type" name="types">
-            <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">
-            Salvar Instituição
-          </button>
-        </div>
-      </form>
+<!-- <div class="institution-body"> -->
+<div class="card">
+  <h1>Formulário de Registro</h1>
+  <div class="grid">  
+    <div class="flex align-items-center justify-content-center">
+      <div class="p-fluid">
+        <form [formGroup]="form" class="p-field" name="form" (ngSubmit)="onSubmit()">
+            <div class="col-10 inputs-register">
+              <div class="form-group field">
+                <label for="name">Nome da instituicão</label>
+                <input pInputText id="name" type="text" class="form-control" placeholder="Insira o nome da Instituição" name="name" formControlName="name" required />
+              </div>
+              <div class="form-group field">
+                <label for="email">Email</label>
+                <input pInputText id="email" type="text" class="form-control" placeholder="Insira o email" name="email" formControlName="email" required />
+              </div>
+              <div class="form-group field">
+                <label for="address">Endereço</label>
+                <input pInputText id="address" type="text" class="form-control" placeholder="Insira o endereço" name="address" formControlName="address" required />
+              </div>
+              <div class="form-group field">
+                <label for="url">Site da Instituição</label>
+                <input pInputText id="url" type="text" class="form-control" placeholder="Insira o site da instituição" name="url" formControlName="url" required />
+              </div>
+              <div class="form-group field">
+                <label for="cep">CEP</label>
+                <input pInputText id="cep" type="text" class="form-control" placeholder="Insira o cep da instituição" name="cep" formControlName="cep" required />
+              </div>
+              <div class="form-group field">
+                <label for="phone_number">Número de Telefone</label>
+                <input pInputText id="phone_number" type="text" class="form-control" placeholder="Insira o número para contato" name="phone_number" formControlName="phone_number" required />
+              </div>
+              <div class="form-group field">
+                <label for="image">Imagem da Instituição</label>
+                <p-fileUpload [showUploadButton]="false" [showCancelButton]="true" mode="advanced" name="image[]" (onSelect)="onFileSelected($event)" cancelLabel="Remover" chooseLabel="Escolher..." accept="image/*"></p-fileUpload>
+              </div>
+              <div class="form-group field">
+                <label for="institution_type">Tipo de Instituição</label>
+                <p-dropdown id="institution_type" [options]="types" name="institution_type" formControlName="institution_type" optionLabel="name" optionValue="value"></p-dropdown>
+              </div>
+            </div>
+            <div class="form-group field">
+              <label for="image">Texto para requisição</label>
+              <textarea [rows]="10" [cols]="50" pInputTextarea placeholder="" name="request_text" formControlName="request_text" required ></textarea>
+            </div>
+            <div class="form-group field">
+              <button pButton label="Enviar Formulário"></button>
+              <!-- <button class="btn btn-primary btn-block">
+                Salvar Instituição
+              </button> -->
+            </div>
+          </form>
+      </div>
+    </div>
+</div>
 </div>

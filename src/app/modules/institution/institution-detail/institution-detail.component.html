@@ -12,8 +12,7 @@
             <div class="info">
                 <div class="card">
                     <h3>Informações</h3>
-                    <p-divider></p-divider>
-                    <a href="{{institution.url}}" target="_blank" class="informacoes">Site : {{institution.url}}</a>
+                    <!-- <p-divider></p-divider> -->
                     <p-divider></p-divider>
                     <p class="informacoes">Endereço : {{institution.address}}</p>
                     <p-divider></p-divider>
@@ -21,7 +20,12 @@
                     <p-divider></p-divider>
                     <p class="informacoes">Telefone : {{institution.phone_number}}</p>
                     <p-divider></p-divider>
-                    <a href="{{institution.email}}" class="informacoes">Email : {{institution.email}}</a>
+                    <p-button styleClass="p-button-outlined">
+                        <a href="{{institution.url}}" target="_blank" class="informacoes"><span class="ml-2 font-bold">Ir para o Site</span></a>
+                    </p-button>
+                    <p-button styleClass="p-button-outlined">
+                        <a href="mailto:{{institution.email}}" target="_blank" class="informacoes"><span class="ml-2 font-bold">Enviar Email</span></a>
+                    </p-button>
                     <p-divider></p-divider>
                 </div>
             </div>
