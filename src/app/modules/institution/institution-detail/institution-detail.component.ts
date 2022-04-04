@@ -12,8 +12,8 @@ import { InstitutionService } from 'src/app/core/services/institution/institutio
 export class InstitutionDetailComponent implements OnInit {
   institution!: Institution;
 
-  latitude: number = -23.98206;
-  longitude: number = -46.30227;
+  latitude: number = 0;
+  longitude: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +31,7 @@ export class InstitutionDetailComponent implements OnInit {
       this.institutionService.getInstitutionByID(id).pipe(take(1)).subscribe(
         response => {
           this.institution = response
+          console.log(this.institution)
       });
     }
   }

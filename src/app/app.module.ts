@@ -9,6 +9,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AuthTokenInterceptor } from './core/services/interceptors/auth-token.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     HomepageModule,
-    // InstitutionModule,
+    BrowserAnimationsModule,
     FontAwesomeModule,
     SharedModule
   ],
