@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { InstitutionService } from 'src/app/core/services/institution/institution.service';
 import { Institution, InstitutionGet } from 'src/app/core/model/institution.model';
 import { map, take } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 interface InstitutionType {
   name: string;
@@ -23,7 +24,8 @@ export class InstitutionPageComponent implements OnInit {
 
   constructor(
     private institutionService: InstitutionService,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {
      this.institutionType = [
       {name: "Ong", value: "ong"},
@@ -66,5 +68,11 @@ export class InstitutionPageComponent implements OnInit {
            .toLowerCase()
            .includes(event['value'].toLowerCase()))
     }
+  }
+
+  handleImage(image: any): any {
+    console.log(image)
+    let objectURL = URL.createObjectURL(image);
+    return this.sanitizer.bypassSecurityTrustUrl(objectURL);
   }
 }

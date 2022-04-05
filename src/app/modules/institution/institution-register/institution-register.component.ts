@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavigationExtras } from '@angular/router';
-import { faCropSimple } from '@fortawesome/free-solid-svg-icons';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
-import { InstitutionService } from 'src/app/core/services/institution/institution.service';
+import { InstitutionRequestService } from 'src/app/core/services/institution_request/institution-request.service';
 
 interface ITypes{
     name: string,
@@ -13,7 +12,8 @@ interface ITypes{
 @Component({
   selector: 'app-institution-register',
   templateUrl: './institution-register.component.html',
-  styleUrls: ['./institution-register.component.scss']
+  styleUrls: ['./institution-register.component.scss'],
+  providers: [MessageService]
 })
 export class InstitutionRegisterComponent implements OnInit {
   
@@ -27,7 +27,9 @@ export class InstitutionRegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private institutionService: InstitutionService
+    private institutionRequestService: InstitutionRequestService,
+    private messageService: MessageService,
+
   ) {
     this.types=[
       {name:'Igreja Católica', value:'catolica'},
@@ -49,14 +51,6 @@ export class InstitutionRegisterComponent implements OnInit {
     });
   }
 
-  onSubmit(): void{
-    console.log(this.form?.value)
-     this.institutionService.createRequestInstitution(this.form?.value, this.file).subscribe(
-        data => alert("Instituição criada com sucesso"),
-        err => console.log('HTTP Error', err.errorMessage)
-      );
-  }
-
   onFileSelected(event?: any) {
     this.file = event.currentFiles[0];
     let reader = new FileReader();
@@ -66,5 +60,23 @@ export class InstitutionRegisterComponent implements OnInit {
         this.imgURL = reader.result;
       }
     }
+  }
+
+  onSubmit(): void {
+    console.log(this.form?.value)
+     this.institutionRequestService.createRequestInstitution(this.form?.value).subscribe(
+        data => this.messageService.add({severity:'success', summary:'Service Message', detail:'Pedido realizado!'}),
+        err => {
+          this.messageService.add({severity:'error', summary:'Service Message', detail:'Ocorreu um erro!'}),
+          console.log('HTTP Error', err.errorMessage)
+        },
+        () => this.handleImage() 
+      );
+  }
+
+  handleImage() {
+    this.institutionRequestService.createImageRequestInstitution(this.file, this.form.get('email')?.value).subscribe(
+      () => console.log('enviou a imagem com sucesso')
+    )
   }
 }

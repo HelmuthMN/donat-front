@@ -36,13 +36,4 @@ export class InstitutionService {
       institution_type: institution_type
     }, {withCredentials:true});
   }
-
-  createRequestInstitution(request: RequestInstitution, file: any): Observable<any> {
-     const formData = new FormData(); 
-     console.log(file)
-        
-      // Store form name as "file" with file data
-    //   formData.append("icon", file, file.name);
-    return this.http.post(`${environment.apiUrl}/institution_request`, {request, formData});
-  }
 }

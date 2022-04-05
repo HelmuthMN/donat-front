@@ -64,7 +64,7 @@ export class UserProfileComponent implements OnInit {
             (event: any) => {
                 if (typeof (event) === 'object') {  
                     this.loading = false;
-                    window.location.reload();
+                    // window.location.reload();
                 }
             }
         );

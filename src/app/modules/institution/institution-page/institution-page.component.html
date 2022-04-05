@@ -19,7 +19,7 @@
         <div class="row" *ngIf="filteredInstitution else loading">
             <div *ngFor="let x of filteredInstitution">
                 <div (click)="handleInstitution(x._id)" class="card black">
-                    <img class="image" src={{x.image}} alt="" />
+                    <img class="image" src={{handleImage(x.image)}} alt="" />
                     <h2>{{x.name}}</h2>
                     <p>{{x.address}}</p>
                     <p>{{x.cep}}</p>
