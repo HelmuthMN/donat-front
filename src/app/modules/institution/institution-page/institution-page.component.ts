@@ -70,9 +70,11 @@ export class InstitutionPageComponent implements OnInit {
     }
   }
 
-  handleImage(image: any): any {
-    console.log(image)
-    let objectURL = URL.createObjectURL(image);
-    return this.sanitizer.bypassSecurityTrustUrl(objectURL);
-  }
+  // loadImage(): any{
+  //   this.userService.retrieveImage().subscribe(
+  //     (response: any) => {
+  //       let objectURL = URL.createObjectURL(response);
+  //       this.image = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+  //   });
+  // }
 }

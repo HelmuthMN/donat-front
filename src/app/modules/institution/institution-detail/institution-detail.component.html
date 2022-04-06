@@ -1,10 +1,10 @@
-<div class="card">
+<div *ngIf="institution" class="card">
     <h1 class="titulo">{{institution.name}}</h1>
     <p-divider></p-divider>
     <div class="grid imgInstitution">
         <div class="col-6 flex align-items-center justify-content-center">
             <div class="p-fluid">
-                <img src="{{institution.image}}" alt="">
+                <img [src]="institutionImage" alt="">
             </div>
         </div>
         
@@ -31,10 +31,10 @@
             </div>
         </div>
     </div>
-</div>
-<p-divider></p-divider>
-<div class="map">
-    <h1 class="titulo">Localização</h1>
-    <app-map [lat]="institution.latitude" [lon]="institution.longitude" [zoom]="16">
-    </app-map>
+    <p-divider></p-divider>
+    <div class="map">
+        <h1 class="titulo">Localização</h1>
+        <app-map [lat]="institution.latitude" [lon]="institution.longitude" [zoom]="16">
+        </app-map>
+    </div>
 </div>

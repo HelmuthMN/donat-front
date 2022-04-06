@@ -57,8 +57,8 @@ export class AdminPageComponent implements OnInit {
                 }
                 )
                 
-                // this.institutionRequestService.deleteRequestInstitution(item._id);
-                // this.reloadCurrentRoute()
+                this.institutionRequestService.deleteRequestInstitution(item._id);
+                this.reloadCurrentRoute()
             },
              reject: () => {
                 this.institutionRequestService.deleteRequestInstitution(item._id);

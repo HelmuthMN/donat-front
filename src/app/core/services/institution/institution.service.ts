@@ -36,4 +36,8 @@ export class InstitutionService {
       institution_type: institution_type
     }, {withCredentials:true});
   }
+
+  retrieveImage(id: string): Observable<any>{
+    return this.http.get(`${API_URL}/get_image/${id}`, {responseType: 'blob' as 'json', withCredentials:true})
+  }
 }
