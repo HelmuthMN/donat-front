@@ -45,20 +45,17 @@ export class AdminPageComponent implements OnInit {
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.institutionRequestService.retrieveRequestInstitutitonImage(item._id).subscribe(
-                  (data: any) => 
-                  {
-                    item.image = data
-                    this.image = item.image
-                    this.institutionService.createInstitution(item.name, item.email, item.address, item.cep,
-                    item.url, item.image, item.phone_number, item.institution_type).subscribe(
+                  () => {
+                    this.institutionService.createInstitution(item.email).subscribe(
                       data => this.messageService.add({severity:'info', summary:'Confirmed', detail:'You have accepted'}),
-                      err => console.log('HTTP Error', err.errorMessage)
+                      err => console.log('HTTP Error', err.errorMessage),
+                      () => {
+                        this.institutionRequestService.deleteRequestInstitution(item._id);
+                        this.reloadCurrentRoute()
+                      }
                   )
                 }
                 )
-                
-                this.institutionRequestService.deleteRequestInstitution(item._id);
-                this.reloadCurrentRoute()
             },
              reject: () => {
                 this.institutionRequestService.deleteRequestInstitution(item._id);
@@ -68,7 +65,6 @@ export class AdminPageComponent implements OnInit {
         });
   }
 
- 
   reloadCurrentRoute() {
     setTimeout(
       () => { 
@@ -82,11 +78,5 @@ export class AdminPageComponent implements OnInit {
 
   showDialog() {
     this.display= true;
-  }
-
-  loadImage(response:any): any{
-    let objectURL = URL.createObjectURL(response);
-    let i = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-    return i
   }
 }

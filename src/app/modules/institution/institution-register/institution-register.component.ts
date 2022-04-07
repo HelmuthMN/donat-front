@@ -63,8 +63,7 @@ export class InstitutionRegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form?.value)
-     this.institutionRequestService.createRequestInstitution(this.form?.value).subscribe(
+    this.institutionRequestService.createRequestInstitution(this.form?.value).subscribe(
         data => this.messageService.add({severity:'success', summary:'Service Message', detail:'Pedido realizado!'}),
         err => {
           this.messageService.add({severity:'error', summary:'Service Message', detail:'Ocorreu um erro!'}),
@@ -76,7 +75,7 @@ export class InstitutionRegisterComponent implements OnInit {
 
   handleImage() {
     this.institutionRequestService.createImageRequestInstitution(this.file, this.form.get('email')?.value).subscribe(
-      () => console.log('enviou a imagem com sucesso')
+      () => ''
     )
   }
 }

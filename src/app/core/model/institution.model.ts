@@ -17,7 +17,6 @@ export interface InstitutionGet {
 	address: string,
     cep: string,
     url: string,
-    image: string,
 	phone_number: string,
     institution_type: string,
     latitude: number,

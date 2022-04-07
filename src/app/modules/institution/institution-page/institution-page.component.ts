@@ -25,7 +25,6 @@ export class InstitutionPageComponent implements OnInit {
   constructor(
     private institutionService: InstitutionService,
     private router: Router,
-    private sanitizer: DomSanitizer
   ) {
      this.institutionType = [
       {name: "Ong", value: "ong"},
@@ -69,12 +68,4 @@ export class InstitutionPageComponent implements OnInit {
            .includes(event['value'].toLowerCase()))
     }
   }
-
-  // loadImage(): any{
-  //   this.userService.retrieveImage().subscribe(
-  //     (response: any) => {
-  //       let objectURL = URL.createObjectURL(response);
-  //       this.image = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-  //   });
-  // }
 }

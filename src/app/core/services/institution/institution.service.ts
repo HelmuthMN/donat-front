@@ -24,16 +24,9 @@ export class InstitutionService {
     );;
   }
 
-  createInstitution(name: string, email: string, address: string, cep: string, url: string, image: string, phone_number: string, institution_type: string): Observable<any> {
+  createInstitution(email: string): Observable<any> {
     return this.http.post(`${API_URL}`, {
-      name: name,
       email: email,
-      address: address,
-      cep: cep,
-      url: url,
-      image: image,
-      phone_number: phone_number,
-      institution_type: institution_type
     }, {withCredentials:true});
   }
 

@@ -2,22 +2,25 @@
 @import "../../../../shared/variables";
 
 body {
+  margin-top: 4em;
   font-family: "Poppins", sans-serif;
   background-color: #fafafa;
+  margin-bottom: 5em;
 }
 
 .search {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2em;
 }
 
 .search input{
-  width: 25em;
-  height: 2em;
-  border-radius: 12px;
+  width: 28em;
+  height: 2.5em;
+  // border-radius: 12px;
   margin-right: 2.3em;
-  border: 0.2em solid black;
+  border: 0.1em solid black;
 }
 
 .search button{
