@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { take } from 'rxjs';
 import { Institution } from 'src/app/core/model/institution.model';
@@ -14,10 +15,12 @@ export class InstitutionDetailComponent implements OnInit {
 
   latitude: number = 0;
   longitude: number = 0;
+  institutionImage: any;
 
   constructor(
     private route: ActivatedRoute,
-    private institutionService: InstitutionService
+    private institutionService: InstitutionService,
+    private sanitizer: DomSanitizer
     ) {}
 
   ngOnInit(): void {
@@ -31,9 +34,16 @@ export class InstitutionDetailComponent implements OnInit {
       this.institutionService.getInstitutionByID(id).pipe(take(1)).subscribe(
         response => {
           this.institution = response
-          console.log(this.institution)
+          this.loadImage(id)
       });
     }
   }
 
+  loadImage(id: string): any{
+    this.institutionService.retrieveImage(id).subscribe(
+      (response: any) => {
+        let objectURL = URL.createObjectURL(response);
+        this.institutionImage = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+    });
+  }
 }

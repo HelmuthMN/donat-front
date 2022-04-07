@@ -15,6 +15,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {InputMaskModule} from 'primeng/inputmask';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,9 @@ import { FormsModule } from '@angular/forms';
     InputTextModule,
     InputMaskModule,
     FileUploadModule,
-    HttpClientModule
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    ToastModule
   ],
   exports: [
     InstitutionPageComponent

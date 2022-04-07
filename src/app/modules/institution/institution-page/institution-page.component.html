@@ -1,9 +1,13 @@
 <div>
    <body>
-        <p class="title">Pesquise a instituição desejada a seguir: </p>
+        <h1 class="title">Todas as instituições registradas: </h1>
         <div class="search">
-            <input type="text" #box (keyup)="handleInput(box.value)"> 
-            <button (click)="handleInput(box.value)">Pesquisar</button>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText placeholder="Pesquise pela instituicão desejada..." type="text" #box (keyup)="handleInput(box.value)"> 
+                <!-- <input type="text" pInputText placeholder="Search" [(ngModel)]="value3" /> -->
+            </span>
+            <!-- <button (click)="handleInput(box.value)">Pesquisar</button> -->
         </div>
         <div class="filters">
             <h2>Filtros</h2>
@@ -19,7 +23,7 @@
         <div class="row" *ngIf="filteredInstitution else loading">
             <div *ngFor="let x of filteredInstitution">
                 <div (click)="handleInstitution(x._id)" class="card black">
-                    <img class="image" src={{x.image}} alt="" />
+                    <img class="image" src="https://i1.wp.com/gestaodesegurancaprivada.com.br/wp-content/uploads/INSTITUI%C3%87%C3%83O-SIGNIFCADO-1.jpg?fit=331%2C279&ssl=1" alt="" />
                     <h2>{{x.name}}</h2>
                     <p>{{x.address}}</p>
                     <p>{{x.cep}}</p>
@@ -31,7 +35,7 @@
             <div class="row">
                 <div *ngFor="let y of allInstitutions">
                     <div (click)="handleInstitution(y._id)" class="card black">
-                        <img class="image" src={{y.image}} alt="" />
+                        <img class="image" src="https://i1.wp.com/gestaodesegurancaprivada.com.br/wp-content/uploads/INSTITUI%C3%87%C3%83O-SIGNIFCADO-1.jpg?fit=331%2C279&ssl=1" alt="" />
                         <h2>{{y.name}}</h2>
                         <p>{{y.address}}</p>
                         <p>{{y.cep}}</p>
