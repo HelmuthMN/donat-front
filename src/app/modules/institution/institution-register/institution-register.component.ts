@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { MessageService } from 'primeng/api';
+    import { MessageService } from 'primeng/api';
 import { InstitutionRequestService } from 'src/app/core/services/institution_request/institution-request.service';
+
+const CELLPHONE = '(99) 99999-9999';
+const LANDLINE= '(99) 9999-9999';
 
 interface ITypes{
     name: string,
@@ -24,6 +26,10 @@ export class InstitutionRegisterComponent implements OnInit {
   imgURL: any;
   uploadedFiles: any[] = [];
 
+  stateOptions: any[];
+  mask!: string;
+  
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,20 +41,25 @@ export class InstitutionRegisterComponent implements OnInit {
       {name:'Igreja Católica', value:'catolica'},
       {name:'Ong', value:'ong'}, 
       {name:'Igreja Protestante', value:'protestante'}
-    ]
+    ],
+    this.stateOptions = [{label: 'Telefone', value: 'telephone'}, {label: 'Celular', value: 'cellphone'}];
    }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       name: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      email: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
+      email: new FormControl('', Validators.compose([Validators.required, Validators.email, Validators.max(30)])),
       address: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      cep: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      url: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      phone_number: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      institution_type: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
+      cep: new FormControl('', Validators.compose([Validators.required])),
+      url: new FormControl('', Validators.compose([Validators.required, Validators.pattern('([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')])),
+      phone_number: new FormControl('', Validators.compose([Validators.required])),
+      institution_type: new FormControl('ong', Validators.compose([Validators.required, Validators.max(30)])),
       request_text: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
     });
+  }
+
+  handleSelectButton(event: any) {
+    event.value === 'cellphone' ? this.mask = 'cellphone' : this.mask = 'telephone'
   }
 
   onFileSelected(event?: any) {
@@ -63,6 +74,7 @@ export class InstitutionRegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.form.controls['url'].setValue('https://' + this.form.get('url')?.value)
     this.institutionRequestService.createRequestInstitution(this.form?.value).subscribe(
         data => this.messageService.add({severity:'success', summary:'Service Message', detail:'Pedido realizado!'}),
         err => {
