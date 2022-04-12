@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -15,6 +16,7 @@ export class UserDropdownComponent implements OnInit {
 
   icon: any;
   defaultIcon: any;
+  items!: MenuItem[];
 
   constructor(
     private authService: AuthService,
@@ -27,11 +29,22 @@ export class UserDropdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadImage();
-  }
 
-  toggleMenu(){
-    const toogleMenu = document.querySelector('.menu');
-    toogleMenu?.classList.toggle('active')
+    this.items = [
+      {
+        label:'Perfil',
+        icon:'pi pi-fw pi-user',
+        command: () => this.router.navigate(['conta/perfil'])
+      },
+      {
+        separator:true
+      },
+      {
+        label:'Sair',
+        icon:'pi pi-fw pi-power-off',
+        command: () => this.submitLogout()
+      }
+    ]
   }
 
   submitLogout(): void{

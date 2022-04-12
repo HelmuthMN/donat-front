@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 const TOKEN = 'access_token';
 const USER =  'username';
@@ -9,7 +10,9 @@ const IS_ADMIN = 'is_admin';
 })
 export class TokenStorageService {
 
-  constructor() { }
+  constructor(
+    private cookieService: CookieService
+  ) { }
   
   singOut(): void {
     localStorage.clear();
@@ -44,22 +47,6 @@ export class TokenStorageService {
     if (isAdmin){
       return isAdmin
     }
-
     return false;
   }
-
-  // public setEmail(email: string): any {
-  //   localStorage.removeItem(EMAIL);
-  //   localStorage.setItem(EMAIL, email);
-  // }
-
-  // public getEmail(): any {
-  //   return localStorage.getItem(EMAIL);
-  // }
-
-
- // Verificar de colocar jwt na API e dar decode no front 
-  // public decodeToken(token: any): any {
-  //   return jwt_decode(token);
-  // }
 }

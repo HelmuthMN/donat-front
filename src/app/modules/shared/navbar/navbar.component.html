@@ -11,16 +11,17 @@
     </button>
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
-        <li class="navbar-item"><a class="navbar-link" routerLink="/home" routerLinkActive="active"> Home </a></li>
         <li class="navbar-item" *ngIf="handleIsAdmin()">
           <a class="navbar-link" routerLink="/admin">
             Admin Area
           </a>
         </li>
-        <li><a>|</a></li>
+        <div *ngIf="handleIsAdmin()">
+          <li><a>|</a></li>
+        </div>
         <li class="navbar-item">
           <a class="navbar-link" routerLink="/sobre" routerLinkActive="active">
-            About
+            Nossa Causa
           </a>
         </li>
         <li><a>|</a></li>

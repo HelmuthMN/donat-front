@@ -54,19 +54,14 @@ body {
   font-weight: bold;
 }
 
-.home-link:is(:focus, :hover) {
-  color: var(--navbar-text-color-focus);
-}
-
 .navbar-link {
   justify-content: right;
-  width: 100%;
   padding: 0.4em 0.8em;
   border-radius: 5px;
   position: static;
 }
 
-.navbar-link:is(:focus, :hover) {
+.navbar-item:is(:focus, :hover) {
   color: rgb(255, 255, 255);
   background-color: var(--navbar-bg-contrast);
 }
