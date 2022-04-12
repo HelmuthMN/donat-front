@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     HttpClientModule,
     FormsModule,
     ToastModule,
-    SelectButtonModule
+    SelectButtonModule,
+    InputNumberModule
   ],
   exports: [
     InstitutionPageComponent

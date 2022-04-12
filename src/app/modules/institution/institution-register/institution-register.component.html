@@ -8,6 +8,9 @@
               <div class="form-group field">
                 <label for="name">Nome da instituicão</label>
                 <input pInputText id="name" type="text" class="form-control" placeholder="Insira o nome da Instituição" name="name" formControlName="name" required />
+                <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid || form.get('name')?.dirty" class="alert alert-danger">
+                  <small class="p-error block" *ngIf="form.get('name')?.errors?.['required']">Insira um nome</small>
+                </div>
               </div>
               <div class="form-group field">
                 <label for="email">Email</label>
@@ -18,10 +21,6 @@
                       <small class="p-error block" *ngIf="form.get('email')?.errors?.['required']">E-mail é obrigatório</small>
                       <small class="p-error block" *ngIf="form.get('email')?.errors?.['email']">E-mail inserido é inválido</small>
                     </div>
-              </div>
-              <div class="form-group field">
-                <label for="address">Endereço</label>
-                <input pInputText id="address" type="text" class="form-control" placeholder="Insira o endereço" name="address" formControlName="address" required />
               </div>
               <div class="form-group field">
                 <label for="url">Site da Instituição</label>
@@ -35,7 +34,7 @@
               </div>
               <div class="form-group field">
                 <label for="cep">CEP</label>
-                <p-inputMask mask="99999-999" id="cep"
+                <p-inputMask mask="99999-999" id="cep" (onBlur)="handleCep(form.get('cep')?.value)"
                 [class.is-invalid] = "form.get('cep')?.invalid && form.get('cep')?.touched" 
                 type="text" class="form-control" placeholder="Insira o cep (Apenas números)" name="cep" formControlName="cep"></p-inputMask>
                 <div *ngIf="(form.get('cep')?.invalid && form.get('cep')?.touched) || form.get('cep')?.dirty">
@@ -43,8 +42,22 @@
                     <small class="p-error block" *ngIf="form.get('cep')?.errors?.['cep']">CEP inválido</small>
                 </div>
               </div>
+              <div class="form-group addressField">
+                <div class="address field">
+                  <label for="address">Endereço</label>
+                  <input pInputText id="address" type="text" class="form-control" placeholder="Insira o endereço" name="address" formControlName="address" required />
+                  <div *ngIf="form.get('address')?.touched && form.get('address')?.invalid || form.get('address')?.dirty" class="alert alert-danger">
+                    <small class="p-error block" *ngIf="form.get('address')?.errors?.['required']">Insira um endereço</small>
+                  </div> 
+                </div>
+                <div class="number field">
+                    <label for="number">Número</label>
+                    <p-inputNumber id="number" placeholder="00" (onBlur)="setAddressNumber($event)"></p-inputNumber>
+                    <!-- <input pInputText (onBlur)="setAddressNumber($event)" id="number" type="number"  placeholder="Insira o número"/> -->
+                  </div>
+              </div>
               <div class="form-group field">
-                <label for="phone_number">Escolha entre celular e telefone:</label>
+                <label for="phone_number">Escolha entre:</label>
                 <p-selectButton (onChange)="handleSelectButton($event)" [options]="stateOptions" 
                 optionLabel="label" optionValue="value"></p-selectButton>
                   <div class="input-mask" *ngIf="mask === 'telephone'" >
@@ -80,11 +93,14 @@
               </div>
             </div>
             <div class="form-group field">
-              <label for="image">Texto para requisição</label>
+              <label for="request_text">Texto para requisição</label>
               <textarea [rows]="10" [cols]="50" pInputTextarea placeholder="" name="request_text" formControlName="request_text" required ></textarea>
+              <div *ngIf="form.get('request_text')?.touched && form.get('request_text')?.invalid || form.get('request_text')?.dirty" class="alert alert-danger">
+                <small class="p-error block" *ngIf="form.get('request_text')?.errors?.['required']">Insira o texto de requisição</small>
+              </div>
             </div>
             <div class="form-group field">
-              <button pButton label="Enviar Formulário"></button>
+              <button [disabled]="!form.valid" pButton label="Enviar Formulário"></button>
             </div>
           </form>
       </div>

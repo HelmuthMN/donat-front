@@ -18,7 +18,9 @@ export class AuthTokenInterceptor implements HttpInterceptor {
   jwtHelper = new JwtHelperService();
   constructor(private tokenStorage: TokenStorageService,
      private router: Router,
-     private authService: AuthService) {}
+     private authService: AuthService,
+
+     ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       {  
@@ -27,7 +29,6 @@ export class AuthTokenInterceptor implements HttpInterceptor {
                 // auto logout if 401 response returned from api
                 this.showSessionExpiredPopUp()
             }
-            console.log(err)
             const error = err.error.message || err.statusText;
             return throwError(() => new Error(error));
         }))

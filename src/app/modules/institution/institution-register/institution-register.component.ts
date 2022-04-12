@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-    import { MessageService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { InstitutionRequestService } from 'src/app/core/services/institution_request/institution-request.service';
+import * as cep from 'cep-promise'
+import { CepService } from 'src/app/core/services/cep/cep.service';
 
 const CELLPHONE = '(99) 99999-9999';
 const LANDLINE= '(99) 9999-9999';
@@ -28,12 +30,14 @@ export class InstitutionRegisterComponent implements OnInit {
 
   stateOptions: any[];
   mask!: string;
+  addressNumber!: string;
   
 
 
   constructor(
     private formBuilder: FormBuilder,
     private institutionRequestService: InstitutionRequestService,
+    private cepService: CepService,
     private messageService: MessageService,
 
   ) {
@@ -73,8 +77,13 @@ export class InstitutionRegisterComponent implements OnInit {
     }
   }
 
+  setAddressNumber(event: any) {
+    this.addressNumber = event.target.value
+  }
+
   onSubmit(): void {
     this.form.controls['url'].setValue('https://' + this.form.get('url')?.value)
+    this.form.controls['address'].setValue(this.form.get('address')?.value + `, ${this.addressNumber}`)
     this.institutionRequestService.createRequestInstitution(this.form?.value).subscribe(
         data => this.messageService.add({severity:'success', summary:'Service Message', detail:'Pedido realizado!'}),
         err => {
@@ -88,6 +97,18 @@ export class InstitutionRegisterComponent implements OnInit {
   handleImage() {
     this.institutionRequestService.createImageRequestInstitution(this.file, this.form.get('email')?.value).subscribe(
       () => ''
+    )
+  }
+
+  handleCep(input: string){
+    this.cepService.retrieveCep(input).subscribe(
+      data => {
+        this.form.controls['address'].setValue(data.street)
+      },
+      err => {
+        this.messageService.add({severity:'error', summary:'CEP inválido', detail:'Ocorreu um erro ao pesquisar o CEP!'}),
+          console.log('HTTP Error', err.message)
+      }
     )
   }
 }
