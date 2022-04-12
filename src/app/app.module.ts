@@ -9,6 +9,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AuthTokenInterceptor } from './core/services/interceptors/auth-token.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true},
+    [CookieService]
   ],
   bootstrap: [AppComponent]
 })

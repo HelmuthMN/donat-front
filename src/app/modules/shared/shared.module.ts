@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MapComponent } from './map/map.component';
 import {DividerModule} from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
+import { TieredMenuModule } from 'primeng/tieredmenu';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ButtonModule } from 'primeng/button';
     RouterModule,
     FontAwesomeModule,
     DividerModule,
-    ButtonModule
+    ButtonModule,
+    TieredMenuModule,
   ],
   exports: [
     NavbarComponent,

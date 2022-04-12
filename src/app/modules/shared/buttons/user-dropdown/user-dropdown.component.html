@@ -1,16 +1,13 @@
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
-</head>
-
 <ul class="user-dropdown">
-    <div (click)="toggleMenu()">
+    <div (click)="menu.toggle($event)">
         <img [src]="icon" alt="image">
         <!-- <img src="/src/assets/images/icon.png" alt=""> -->
     </div>
-    <div class="menu">
+    <p-tieredMenu styleClass="menucus" #menu [model]="items" [popup]="true"></p-tieredMenu>
+    <!-- <div class="menu">
         <ul>
             <li><a routerLink="conta/perfil" routerLinkActive="active">Perfil</a></li>
             <li (click)="submitLogout()" ><a routerLink="/home" routerLinkActive="active"><i class="fa fa-sign-out-alt" style="font-size:18px"></i>Sair</a></li>
         </ul>
-    </div>
+    </div> -->
 </ul>

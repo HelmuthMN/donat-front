@@ -1,5 +1,4 @@
 @import "../../../../../shared/variables";
-// @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css');
 *{margin: 0; padding: 0;}
 
 .user-dropdown{
@@ -67,4 +66,9 @@
 // hover ao passar o mouse em cima do item do dropdown
 .menu li:hover a{
     color: black;
+}
+
+:host ::ng-deep .menucus {
+    border: 0.16em solid black;
+    // background-color: $primary-color;
 }
