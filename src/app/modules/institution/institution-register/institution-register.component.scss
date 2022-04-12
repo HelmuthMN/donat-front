@@ -18,6 +18,25 @@
     align-items: center;
     justify-content: center;
 }
+
+.input-mask{
+    margin-top: 0.7em;
+}
+.addressField {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
+
+.address {
+    width: 30em;
+}
+
+.number {
+    padding-left: 2em;
+    width: 7em;
+}
 // .institution-body {
 //     display: flex;
 //     flex-direction: column;
