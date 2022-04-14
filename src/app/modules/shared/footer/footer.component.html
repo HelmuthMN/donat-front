@@ -1,26 +1,29 @@
-<footer>
+<footer class="footer">
   <!-- Inicio do Footer-->
-  <div class="flex" id="bgfooter">
+<div class="flex" id="bgfooter">
     <div>
       <h4 class="titulo">Sobre Nós</h4>
-      <p class="descricao">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-        of type and scrambled it to make a type specimen book.</p>
+      <p class="descricao">Somos um grupo de desenvolvedores de Santos, SP, que tem o objetivo de ajudar outras pessoas por meio deste plataforma.</p>
+      <p class="descricao">Não temos quaisquer parcela de lucro pelo site, bem como não temos ligação com qualquer orgão governamental ou não-governamental.</p>
     </div>
 
     <p-divider layout="vertical"></p-divider>
 
-    <div>
-      <h5 class="titulo">Endereço<i class="pi pi-home" style="font-size: 1.5rem"></i></h5>
-      <p class="descricao">R. Cidade de Santos, 212 - Ponta da Praia, Santos - SP, 11013-002</p>
-
-      <div>
-        <h5 class="titulo">Telefone<i class="pi pi-phone" style="font-size: 1.5rem"></i></h5>
-        <p class="telefone">(13) 3221-1255</p>
+    <div class="contact">
+      <div class="contact__item">
+        <h5 class="contact__item__titulo">Endereço<i class="pi pi-home" style="font-size: 1.5rem"></i></h5>
+        <p class="contact__item__descricao">R. Cidade de Santos, 212 - Ponta da Praia, Santos - SP, 11013-002</p>
       </div>
 
-      <h5 class="titulo">E-mail<i class="pi pi-envelope" style="font-size: 1.5rem"></i></h5>
-      <p>http://www.donat.com.br</p>
+      <div class="contact__item">
+        <h5 class="contact__item__titulo">Telefone<i class="pi pi-phone" style="font-size: 1.5rem"></i></h5>
+        <p class="contact__item__descricao">(13) 3221-1255</p>
+      </div>
+
+      <div class="contact__item">
+        <h5 class="contact__item__titulo">E-mail<i class="pi pi-envelope" style="font-size: 1.5rem"></i></h5>
+        <a href="mailto:donat@donat.com" class="contact__item__descricao">donat@donat.com</a>
+      </div>
 
     </div>
 
@@ -28,11 +31,10 @@
 
     <div>
       <h4 class="titulo">Seja um Parceiro</h4>
-      <p class="descricaoSejaParceiro">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book.</p>
+      <p class="descricaoSejaParceiro">Quer que sua instituição esteja presente em nosso site?
+        <br>Clique neste botão, preencha o formulário e espere nosso retorno =)</p>
       <div class="flex justify-content-center">
-        <p-button icon="pi pi-send" label="Contate-nos!" routerLink='/instituicoes/registrar'></p-button>
+        <p-button class="footer-button" icon="pi pi-send" label="Contate-nos!" routerLink='/instituicoes/registrar'></p-button>
       </div>
     </div>
 
@@ -40,7 +42,7 @@
   <!-- Final do Footer-->
 
   <!-- Começo Direitos Reservados-->
-  <div class="row text-center color">
+  <div class="row text-center cop">
     <div>
       <p>2022 &copy; Copyright Donat Inc. </p>
     </div>

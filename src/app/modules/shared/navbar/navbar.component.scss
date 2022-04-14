@@ -9,7 +9,6 @@ root {
 
 * {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
@@ -30,6 +29,7 @@ body {
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
+  margin: 1em;
 }
 .navbar-container {
   display: flex;

@@ -15,16 +15,21 @@
 .ft-legal-list li:nth-last-child(2) {
     flex: 1;
 }
-.color{
-  background-color: #fbfbf8;
+footer{
+  background-color: #63c1fc;
 }
 #bgfooter{
   background-color: #87CEFA;
+  justify-content: space-evenly;
 }
 
 .modalbg {
   
   background-color: #87CEFA;
+}
+
+.descricaoSejaParceiro{
+  text-align: center;
 }
 
 .titulo, .telefone{
@@ -35,6 +40,7 @@
 
 .descricao {
   padding-left: 25px;
+  text-align: center;
 }
 .descricaoSejaParceiro {
   padding-right: 12px;
@@ -42,60 +48,40 @@
 .pi {
   padding-left: 15px;
 }
-.boxCadastro input[type="text"],
-.boxCadastro input[type="email"],
-.boxCadastro input[type="tel"],
-.boxCadastro input[type="name"],
-.textar {
-border: 0;
-background: white;
-display: block;
-margin: 20px auto;
-text-align: center;
-border: 2px solid blue;
-padding: 10px 10px;
-width: 250px;
-outline: none;
-color: black;
-border-radius: 24px;
-transition: 0.25s
+
+.footer-button{
+  padding-top: 1em;
 }
 
-.boxCadastro h1 {
-color: white;
-text-transform: uppercase;
-font-weight: 500
+.contact {
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__titulo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__descricao{
+      margin-top: -1.3em;
+      text-align: center;
+    }
+  }
 }
 
-.boxCadastro input[type="text"]:focus,
-.boxCadastro input[type="email"]:focus,
-.boxCadastro input[type="tel"]:focus,
-.boxCadastro input[type="name"]:focus
-{
-width: 300px;
-border-color: #0a6ceb
+a{
+  color: inherit;
+  text-decoration: none;
 }
-.textar:focus {
-width: 350px;
-border-color: #0a6ceb
+a:hover{
+  color: whitesmoke;
 }
 
-.boxCadastro input[type="submit"]
-{
-border: 0;
-background: none;
-display: block;
-margin: 20px auto;
-text-align: center;
-border: 2px solid #0a6ceb;
-padding: 14px 40px;
-outline: none;
-color: white;
-border-radius: 24px;
-transition: 0.25s;
-cursor: pointer
-}
 
-.boxCadastro input[type="submit"]:hover,textar:hover {
-background: #0a6ceb
+.cop{
+  padding-bottom: 0.2em;
 }
