@@ -47,51 +47,16 @@
                 <h2>Intituições</h2>
             </div>
         </div>
-        <div class="flex">
-            <div>
-                <p-card class="card-test" header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}"
+        <div class="card-container" *ngIf="randomInstitutions">
+            <div *ngFor="let i of randomInstitutions">
+                <p-card class="card-test" [header]="i.name" [style]="{width: '360px'}"
                     styleClass="p-card-shadow">
                     <ng-template pTemplate="header">
                         <img alt="Card" src="https://aiconica.net/previews/institution-icon-68.png">
                     </ng-template>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                        repudiandae numquam deserunt
-                        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
-                        cupiditate neque quas!</p>
+                    <p>Veja esta instituição em sua página com mais detalhes!</p>
                     <ng-template pTemplate="footer">
-                        <p-button label="Ir para Instituição" icon="pi pi-forward"></p-button>
-                    </ng-template>
-                </p-card>
-            </div>
-            <p-divider layout="vertical"></p-divider>
-            <div>
-                <p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}"
-                    styleClass="p-card-shadow">
-                    <ng-template pTemplate="header">
-                        <img alt="Card" src="https://aiconica.net/previews/institution-icon-68.png">
-                    </ng-template>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                        repudiandae numquam deserunt
-                        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
-                        cupiditate neque quas!</p>
-                    <ng-template pTemplate="footer">
-                        <p-button label="Ir para Instituição" icon="pi pi-forward"></p-button>
-                    </ng-template>
-                </p-card>
-            </div>
-            <p-divider layout="vertical"></p-divider>
-            <div>
-                <p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}"
-                    styleClass="p-card-shadow">
-                    <ng-template pTemplate="header">
-                        <img alt="Card" src="https://aiconica.net/previews/institution-icon-68.png">
-                    </ng-template>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                        repudiandae numquam deserunt
-                        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
-                        cupiditate neque quas!</p>
-                    <ng-template pTemplate="footer">
-                        <p-button label="Ir para Instituição" icon="pi pi-forward"></p-button>
+                        <p-button label="Ir para Instituição" icon="pi pi-forward" (onClick)="goToInstitution(i.id)"></p-button>
                     </ng-template>
                 </p-card>
             </div>

@@ -18,9 +18,18 @@
   padding-bottom: 3.5em;
 }
 
-.flex {
-  justify-content: center;
+// .flex {
+//   justify-content: center;
+// }
+
+.card-container{
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  justify-content: space-evenly;
 }
+
 .pi {
   display: flex;
   justify-content: center;
@@ -35,6 +44,10 @@
 
 .institution-card {
   padding-top: 3em;
+}
+
+.institution-card h2{
+  font-size: 3rem;
 }
 
 .carousel-item {

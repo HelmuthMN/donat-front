@@ -3,6 +3,10 @@ import { TokenStorageService } from 'src/app/core/services/auth/token-storage.se
 import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons';
 import { faAppleWhole } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { InstitutionGet, InstitutionHomeGet } from 'src/app/core/model/institution.model';
+import { InstitutionService } from 'src/app/core/services/institution/institution.service';
+import { take } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface carouselItem {
   image: string,
@@ -22,9 +26,12 @@ export class ViewpageComponent implements OnInit {
   username: any;
 	responsiveOptions;
   carouselItems: carouselItem[] = [];
+  randomInstitutions!: InstitutionHomeGet[];
 
   constructor(
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private institutionService: InstitutionService,
+    private router: Router
   ) {
     this.responsiveOptions = [
             {
@@ -46,6 +53,8 @@ export class ViewpageComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.institutionService.getRandomInstitutions().pipe(take(1)).subscribe(res => this.randomInstitutions = res)
+
     this.username = this.tokenStorage.getUser()
     this.carouselItems = [
       {
@@ -67,4 +76,7 @@ export class ViewpageComponent implements OnInit {
     ]
   }
 
+  goToInstitution(id: string) {
+    this.router.navigate(['/instituicoes/i/'], { queryParams: { _id: id } })
+  }
 }
