@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, shareReplay, tap, throwError } from 'rxjs';
-import { Institution, InstitutionGet, RequestInstitution } from 'src/app/core/model/institution.model';
+import { Institution, InstitutionGet, InstitutionHomeGet, RequestInstitution } from 'src/app/core/model/institution.model';
 import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl + '/instituicao'
@@ -22,6 +22,13 @@ export class InstitutionService {
       map(res => res),
       shareReplay()
     );;
+  }
+
+  getRandomInstitutions(): Observable<InstitutionHomeGet[]> {
+    return this.http.get<InstitutionHomeGet[]>(`${API_URL}/random`).pipe(
+      map(res => res),
+      shareReplay()
+    )
   }
 
   createInstitution(email: string): Observable<any> {

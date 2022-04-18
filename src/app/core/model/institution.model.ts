@@ -22,6 +22,18 @@ export interface InstitutionGet {
     latitude: number,
     longitude: number 
 }
+export interface InstitutionHomeGet {
+    id: string,
+    name: string,
+    email: string,
+	address: string,
+    cep: string,
+    url: string,
+	phone_number: string,
+    institution_type: string,
+    latitude: number,
+    longitude: number 
+}
 
 export interface RequestInstitutionGet {
     _id: string,
