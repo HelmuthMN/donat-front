@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 interface carouselItem {
   image: string,
+  title: string,
   description: string
 }
 
@@ -59,20 +60,19 @@ export class ViewpageComponent implements OnInit {
     this.carouselItems = [
       {
         image:"https://cdn.pixabay.com/photo/2019/06/27/04/35/organ-donation-4301527__340.jpg",
-        description:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        title: "Evento Benecifente no Lar dos Y em Santos, SP",
+        description:"O 4º evento beneficente no Lar dos Y está chegando. Este ano, como de costume, o evento ocorrerá na Rua Bahia, 44."
       },
       {
         image:"https://cdn.discordapp.com/attachments/746160159855738953/957770574208327720/doacao20de20sangue.png",
-        description:"yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+        title: "Evento da banda UAYFJ em Santos, SP",
+        description:"A banda UAYFJ no Lar dos Y está chegando. Eles farão um show no Mendes Convention Center, com entrada franca."
       },
       {
         image:"https://i.pinimg.com/736x/2e/6f/c3/2e6fc38b8adf29204eb098bc6f3fedc2.jpg",
-        description:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        title: "Evento da Congregação dos JJAU em Santos, SP",
+        description:"O primeiro evento da Congregação dos JJAU. Ocorrerá na Avenida Senador Feijó, 168, dia 16/06 a partir das 19hrs."
       },
-      {
-        image:"https://static.vecteezy.com/ti/vetor-gratis/t2/1879882-conceito-de-doacao-e-caridade-gr%C3%A1tis-vetor.jpg",
-        description:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-      }
     ]
   }
 

@@ -1,3 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap');
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  &__carousel {
+    width: 50%;
+    &__product-item {
+          border: 1px solid var(--surface-d);
+          border-radius: 3px;
+          margin: .3rem;
+          text-align: center;
+          padding: 2rem 0;
+          position: relative;
+          &__text {
+            z-index: 1;
+            position: absolute;
+            top: 22.08em;
+            color: white;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,1));;
+            h4{
+              font-size: 1.5rem;
+            }
+          }
+      &__product-image {
+          width: 50%;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+      }
+    }
+  }
+  &__left {
+    text-align: center;
+  }
+}
 
 .placeholder {
   display: flex;
@@ -7,9 +43,47 @@
   margin-top: 2em;
 }
 
+.media-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em ;
+
+  .media-body {
+    padding-top: 1em;
+    text-align: center;
+    align-items: flex-end;
+
+    p{
+      max-width: 40rem;
+    }
+
+    blockquote {
+      font-family: 'Oxygen', sans-serif;
+      font-size: 1.4rem;
+    }
+
+    .div-title{
+      font-size: 1.25rem;
+      font-weight: bold;
+        }
+
+    small{
+      font-family: 'Oxygen', sans-serif;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: end;
+      padding-top: inherit;
+      font-style: italic;
+      font-weight:800;
+    }
+  }
+}
+
 .card-footer{
   background-color: #f0ffea;
 }
+
 #fundo{
   background-color: #fafafa;
   padding-left: 2em;
@@ -17,10 +91,6 @@
   padding-top: 5em;
   padding-bottom: 3.5em;
 }
-
-// .flex {
-//   justify-content: center;
-// }
 
 .card-container{
   margin: auto;
@@ -37,9 +107,12 @@
 
 .infos{
   background-color: #87CEFA;
-  padding: 1em;
-  height: 15em;
   padding-right: 0.5em;
+  margin-top: 1em;
+  border-radius: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 12px;
 }
 
 .institution-card {
@@ -48,12 +121,6 @@
 
 .institution-card h2{
   font-size: 3rem;
-}
-
-.carousel-item {
-  width:1280px;
-    height:600px;
-    object-fit: fill;
 }
 
 .join{
@@ -70,19 +137,4 @@
 
 .pi-id-card {
   color: #a6f349;
-}
-
-.product-item {
-    .product-item-content {
-        border: 1px solid var(--surface-d);
-        border-radius: 3px;
-        margin: .3rem;
-        text-align: center;
-        padding: 2rem 0;
-    }
-
-    .product-image {
-        width: 50%;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-    }
 }
