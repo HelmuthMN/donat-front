@@ -1,44 +1,7 @@
-<!-- <div class="col-md-12"> -->
-    <!-- <div class="card card-container">
-      <img
-        id="profile-img"
-        src="https://p.favim.com/orig/2018/10/19/anime-girl-icons-anime-girl-cute-Favim.com-6448415.png"
-        class="profile-img-card"
-      />
-      <form [formGroup]="form" *ngIf="!isLoggedIn" name="form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" placeholder="Insira seu email" name="email" formControlName="email" required />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" placeholder="Insira sua senha" name="password" formControlName="password" required minlength="6" />
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">
-            Login
-          </button>
-        </div>
-        <div class="form-group">
-          <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="isLoginFailed"
-          >
-            Login failed: {{ errorMessage }}
-          </div>
-        </div>
-      </form>
-  
-      <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}.
-      </div>
-    </div>
-  </div> -->
-
 <div class="card">
   <div class="grid">
-      <div class="col-5 flex align-items-center justify-content-center">
+      <div class="col-5 flex align-items-center justify-content-center login">
+          <h1>Já é cadastrado?</h1>
           <div class="p-fluid">           
               <form [formGroup]="form" class="p-field" *ngIf="!isLoggedIn" name="form" (ngSubmit)="onSubmit()">
                 <div class="form-group field">
@@ -56,7 +19,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary btn-block">Entrar</button>
+                  <button pButton class="btn p-button-info">Entrar</button>
                 </div>
                 <div class="form-group">
                   <div

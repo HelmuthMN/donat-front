@@ -26,7 +26,6 @@ export class AdminPageComponent implements OnInit {
     private messageService: MessageService,
     private institutionRequestService: InstitutionRequestService,
     private institutionService: InstitutionService,
-    private sanitizer: DomSanitizer,
     private router: Router
   ) { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
