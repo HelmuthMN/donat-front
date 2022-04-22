@@ -5,20 +5,11 @@
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input pInputText placeholder="Pesquise pela instituicão desejada..." type="text" #box (keyup)="handleInput(box.value)"> 
-                <!-- <input type="text" pInputText placeholder="Search" [(ngModel)]="value3" /> -->
             </span>
-            <!-- <button (click)="handleInput(box.value)">Pesquisar</button> -->
         </div>
         <div class="filters">
             <h2>Filtros</h2>
             <p-dropdown [options]="institutionType" (ngModelChange)="handleDropdown($event)" [(ngModel)]="selectedType" placeholder="Filtro por Tipo" optionLabel="name" [showClear]="true"></p-dropdown>
-            <!-- <div class="dropdown">
-                <button (click)="handleDropdown()" class="dropbtn">Tipo <i class="fa fa-caret-down"></i></button>
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="#">- Igrejas</a>
-                  <a href="#">- Ongs</a>
-                </div>
-              </div>  -->
         </div>
         <div class="row" *ngIf="filteredInstitution else loading">
             <div *ngFor="let x of filteredInstitution">

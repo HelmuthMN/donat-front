@@ -5,42 +5,39 @@
   flex-direction: row;
   justify-content: space-around;
 
-  &__carousel {
+  &__right {
+    display: flex;
+    flex-direction: column;
     width: 50%;
-    &__product-item {
-          border: 1px solid var(--surface-d);
-          border-radius: 3px;
-          margin: .3rem;
-          text-align: center;
-          padding: 2rem 0;
-          position: relative;
-          &__text {
-            z-index: 1;
-            position: absolute;
-            top: 22.08em;
-            color: white;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,1));;
-            h4{
-              font-size: 1.5rem;
-            }
+    h2{
+      text-align: center;
+    }
+    &__carousel {
+      &__product-item {
+        border: 1px solid var(--surface-d);
+        border-radius: 3px;
+        margin: .3rem;
+        text-align: center;
+        position: relative;
+        &__text {
+          z-index: 1;
+          position: absolute;
+          top: 22.08em;
+          color: white;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,1));;
+          h4{
+            font-size: 1.5rem;
           }
-      &__product-image {
-          width: 50%;
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+        }
+        p-image {
+          cursor: pointer;
+        }
       }
     }
   }
   &__left {
     text-align: center;
   }
-}
-
-.placeholder {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  align-items: center;
-  margin-top: 2em;
 }
 
 .media-content {
@@ -80,10 +77,6 @@
   }
 }
 
-.card-footer{
-  background-color: #f0ffea;
-}
-
 #fundo{
   background-color: #fafafa;
   padding-left: 2em;
@@ -100,15 +93,10 @@
   justify-content: space-evenly;
 }
 
-.pi {
-  display: flex;
-  justify-content: center;
-}
-
 .infos{
   background-color: #87CEFA;
   padding-right: 0.5em;
-  margin-top: 1em;
+  margin-top: 4em;
   border-radius: 2em;
   display: flex;
   justify-content: space-evenly;
@@ -125,16 +113,4 @@
 
 .join{
   padding-top: 3em;
-}
-
-.pi-heart {
-  color: #f65c78;
-}
-
-.pi-shopping-cart {
-  color: #fccb8f;
-}
-
-.pi-id-card {
-  color: #a6f349;
 }

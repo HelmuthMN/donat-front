@@ -5,22 +5,25 @@
             <p>Estamos em construção ;)</p>
             <img src="https://media.giphy.com/media/aH6g6PuAZ31jG/giphy.gif" alt="">
         </div>
-        <p-carousel class="main-content__carousel" [value]="carouselItems" styleClass="custom-carousel" [numVisible]="1" [numScroll]="1" [circular]="true"
-            [autoplayInterval]="8000" [responsiveOptions]="responsiveOptions">
-            <ng-template let-product pTemplate="item">
-                <div class="main-content__carousel__product-item">
-                    <p-image src="{{product.image}}" alt="Image" width="800" height="450"></p-image>
-                    <div class="main-content__carousel__product-item__text">
-                        <h4 class="mb-1">{{product.title}}</h4>
-                        <p class="main-content__carousel__product-item__text__t">{{product.description}}</p>
-                        <small>Mais informações no clicando na imagem</small>
+        <p-divider layout="vertical"></p-divider>
+        <div class="main-content__right">
+            <h2>Próximos Eventos</h2>
+            <p-carousel class="main-content__right__carousel" [value]="carouselItems" [numVisible]="1" [numScroll]="1" [circular]="true"
+                [autoplayInterval]="8000">
+                <ng-template let-product pTemplate="item">
+                    <div class="main-content__right__carousel__product-item">
+                        <p-image (click)="handleCarouselClick()" src="{{product.image}}" alt="Image" width="800" height="495"></p-image>
+                        <div class="main-content__right__carousel__product-item__text">
+                            <h4 class="mb-1">{{product.title}}</h4>
+                            <p class="main-content__right__carousel__product-item__text__t">{{product.description}}</p>
+                            <small>Mais informações no clicando na imagem</small>
+                        </div>
                     </div>
-            </div>
-            </ng-template>
-        </p-carousel>
+                </ng-template>
+            </p-carousel>
+        </div>
     </div>
     
-
     <div class="infos ">
         <div class="media-content">
             <div class="media-body">
@@ -37,11 +40,9 @@
         </div>
         <p-divider layout="vertical"></p-divider>
         <div class="media-content">
-            <!-- <i class="pi pi-heart" style="font-size: 2rem"></i> -->
             <div class="media-body">
                 <p class="mt-2 ml-2 text-sm-left div-title">Ajude o nosso projeto a continuar independente: </p>
                 <a href="https://www.buymeacoffee.com/capscode" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-                <!-- <small>- Autor Desconhecido</small> -->
             </div>
         </div>
     </div>
@@ -54,7 +55,7 @@
         </div>
         <div class="card-container" *ngIf="randomInstitutions">
             <div *ngFor="let i of randomInstitutions">
-                <p-card class="card-test" [header]="i.name" [style]="{width: '360px'}"
+                <p-card [header]="i.name" [style]="{width: '360px'}"
                     styleClass="p-card-shadow">
                     <ng-template pTemplate="header">
                         <img alt="Card" src="https://aiconica.net/previews/institution-icon-68.png">
