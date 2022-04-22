@@ -14,7 +14,7 @@
       <div *ngIf="!file">
         <img [src]="currentIcon" width=130px style="margin:0;">
       </div>
-        <button color="primary" class="upload-btn"
+        <button pButton color="primary"
           (click)="fileUpload.click()">
           <a class="btn" style="color:black;font-weight:600">Mudar Imagem</a>
         </button>
@@ -43,13 +43,9 @@
   </div>
 
   <div class="profile-btn">
-    <button (click)="onCancel()" 
-            class="btn btn-cancel">
-            Voltar
+    <button pButton (click)="onCancel()" label="Voltar" class="p-button-rounded">
     </button>
-    <button (click)="onSubmit()" 
-            class="btn btn-success">
-            Salvar
+    <button pButton (click)="onSubmit()" label="Salvar" class="p-button-raised p-button-rounded">
     </button>
   </div>
   </div>

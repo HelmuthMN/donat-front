@@ -27,10 +27,6 @@ export class NavbarComponent implements OnInit {
     return this.isLoggedIn = false;
   }
 
-  goToBottom(){
-    window.scrollTo(0,document.body.scrollHeight);
-  }
-
   handleIsAdmin(): boolean{
     if(this.isAdmin){return true} return false;
   }

@@ -32,34 +32,10 @@ export class AuthTokenInterceptor implements HttpInterceptor {
             const error = err.error.message || err.statusText;
             return throwError(() => new Error(error));
         }))
-        // token = toString(this.tokenStorage.getToken())
-        // console.log(localStorage.getItem('access_token') == 'string')
-        // console.log('verificar token', this.jwtHelper.isTokenExpired(token));
-
-        // if (this.isTokenExpired()) {
-        //     console.log("token is expired.");
-        //     this.showSessionExpiredPopUp();
-        // }
-        // else {
-        //     console.log("token is not expired.");
-        // }
-        // return next.handle(request);
+       
     }
 }
 
-// isTokenExpired() {
-//     const helper = new JwtHelperService();
-//     return this.tokenStorage.getToken() && helper.isTokenExpired(this.tokenStorage.getToken());
-// }
-
-// isTokenExpired() {
-//         const helper = new JwtHelperService();
-//         console.log('verificar token',this.tokenStorage.getToken())
-//         // if (helper.isTokenExpired(this.tokenStorage.getToken())) {
-//         //     return true;
-//         // }
-//         return false;
-//     }
 
 showSessionExpiredPopUp() {
         Swal.fire({

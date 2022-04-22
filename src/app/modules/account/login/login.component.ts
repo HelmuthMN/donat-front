@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         // this.roles = this.tokenStorage.getUser().roles;
         this.router.navigate(['/']);
-        // this.reloadPage();
       }, err => {
         console.log('Usuário ou senha incorretos');
         this.errorMessage = 'Usuário ou senha incorretos';

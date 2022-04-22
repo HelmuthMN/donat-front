@@ -1,10 +1,8 @@
 import { Location } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/core/model/user/user.model';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
@@ -23,18 +21,17 @@ export class UserProfileComponent implements OnInit {
   isSuccessful = false;
   user: any;
   isLoggedIn = false;
-
   fileName = '';
 
   constructor(
     private userService: UserService,
     private sanitizer: DomSanitizer,
     private formBuilder: FormBuilder,
-    private location: Location
+    private location: Location,
+    private router: Router
     ) {}
   
   ngOnInit(): void {
-    // verificar possibilidade de passar um valor default dentro do 'value' do FormControl
     this.form = this.formBuilder.group({
       username: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
       email: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
@@ -64,7 +61,7 @@ export class UserProfileComponent implements OnInit {
             (event: any) => {
                 if (typeof (event) === 'object') {  
                     this.loading = false;
-                    // window.location.reload();
+                    this.router.navigate(['/home'])
                 }
             }
         );
