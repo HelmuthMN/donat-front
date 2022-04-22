@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
-import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons';
-import { faAppleWhole } from '@fortawesome/free-solid-svg-icons';
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
-import { InstitutionGet, InstitutionHomeGet } from 'src/app/core/model/institution.model';
+import { InstitutionHomeGet } from 'src/app/core/model/institution.model';
 import { InstitutionService } from 'src/app/core/services/institution/institution.service';
 import { take } from 'rxjs';
 import { Router } from '@angular/router';
@@ -21,42 +17,17 @@ interface carouselItem {
 })
 export class ViewpageComponent implements OnInit {
 
-  faHandHoldingHeart = faHandHoldingHeart;
-  faAppleWhole = faAppleWhole;
-  faAddressCard = faAddressCard;
-  username: any;
-	responsiveOptions;
   carouselItems: carouselItem[] = [];
   randomInstitutions!: InstitutionHomeGet[];
 
   constructor(
-    private tokenStorage: TokenStorageService,
     private institutionService: InstitutionService,
-    private router: Router
-  ) {
-    this.responsiveOptions = [
-            {
-                breakpoint: '1024px',
-                numVisible: 3,
-                numScroll: 3
-            },
-            {
-                breakpoint: '768px',
-                numVisible: 2,
-                numScroll: 2
-            },
-            {
-                breakpoint: '560px',
-                numVisible: 1,
-                numScroll: 1
-            }
-        ];
-   }
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.institutionService.getRandomInstitutions().pipe(take(1)).subscribe(res => this.randomInstitutions = res)
 
-    this.username = this.tokenStorage.getUser()
     this.carouselItems = [
       {
         image:"https://cdn.pixabay.com/photo/2019/06/27/04/35/organ-donation-4301527__340.jpg",
@@ -64,7 +35,7 @@ export class ViewpageComponent implements OnInit {
         description:"O 4º evento beneficente no Lar dos Y está chegando. Este ano, como de costume, o evento ocorrerá na Rua Bahia, 44."
       },
       {
-        image:"https://cdn.discordapp.com/attachments/746160159855738953/957770574208327720/doacao20de20sangue.png",
+        image:"https://s2.glbimg.com/0dalJeIvrTd598bvyDcQ_NQ0mds=/0x0:2048x1365/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/e/E/WoTyEmS4upylBoHoBMCw/48806312816-214599fda3-k.jpg",
         title: "Evento da banda UAYFJ em Santos, SP",
         description:"A banda UAYFJ no Lar dos Y está chegando. Eles farão um show no Mendes Convention Center, com entrada franca."
       },
@@ -78,5 +49,10 @@ export class ViewpageComponent implements OnInit {
 
   goToInstitution(id: string) {
     this.router.navigate(['/instituicoes/i/'], { queryParams: { _id: id } })
+  }
+
+  handleCarouselClick() {
+    const url = 'https://github.com/HelmuthMN/donat-front';
+    window.open(url, '_blank');
   }
 }

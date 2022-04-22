@@ -7,7 +7,6 @@
        (change)="onFileSelected($event)" #fileUpload>
   <div class="profile-body">
   <div class="profile-content">
-    <!-- {{file?.name || "No file uploaded yet."}} -->
     <div class="profile-icon">
       <div *ngIf="file">
         <img [src]="imgURL" width=130px style="margin:0;" alt="">
@@ -18,7 +17,6 @@
         <button color="primary" class="upload-btn"
           (click)="fileUpload.click()">
           <a class="btn" style="color:black;font-weight:600">Mudar Imagem</a>
-          <!-- <i class="fa-solid fa-paperclip"></i> -->
         </button>
     </div>
     
