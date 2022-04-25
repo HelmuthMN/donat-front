@@ -46,4 +46,8 @@ export class InstitutionDetailComponent implements OnInit {
         this.institutionImage = this.sanitizer.bypassSecurityTrustUrl(objectURL);
     });
   }
+
+  handleBoleto(){
+    alert('MANDA BOLETO!')
+  }
 }

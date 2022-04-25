@@ -29,7 +29,19 @@
                         <p-divider></p-divider>
                     </div>
                 </div>
+                <p-divider layout="vertical"></p-divider>
+                <div class="payment">
+                    <h3>Formas de pagamento</h3>
+                    <p-divider></p-divider>
+                    <div class="payment__buttons">
+                        <button pButton pRipple type="button" (click)="handleBoleto()" label="Primary" class="p-button-raised p-button-success" iconPos="right" icon="pi pi-dollar" label="Gerar Boleto">
+                        </button>
+                        <button pButton pRipple type="button" label="Primary" class="p-button-raised p-button-info" label="Pix" disabled>
+                        </button>
+                    </div>
+                </div>
             </div>
+            
         </div>
         <p-divider></p-divider>
         <div class="map">
