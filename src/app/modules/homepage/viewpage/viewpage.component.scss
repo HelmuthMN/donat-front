@@ -37,6 +37,7 @@
   }
   &__left {
     text-align: center;
+    align-self: center;
   }
 }
 
@@ -69,7 +70,7 @@
       font-family: 'Oxygen', sans-serif;
       font-size: 0.9rem;
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       padding-top: inherit;
       font-style: italic;
       font-weight:800;

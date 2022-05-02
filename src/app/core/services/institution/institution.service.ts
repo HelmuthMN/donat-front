@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, shareReplay, tap, throwError } from 'rxjs';
-import { Institution, InstitutionGet, InstitutionHomeGet, RequestInstitution } from 'src/app/core/model/institution.model';
+import { map, Observable, shareReplay } from 'rxjs';
+import { InstitutionGet, InstitutionHomeGet } from 'src/app/core/model/institution.model';
 import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl + '/instituicao'

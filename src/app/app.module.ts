@@ -10,6 +10,7 @@ import { AuthTokenInterceptor } from './core/services/interceptors/auth-token.in
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './core/services/auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true},
-    [CookieService]
+    [CookieService, AuthGuard]
   ],
   bootstrap: [AppComponent]
 })

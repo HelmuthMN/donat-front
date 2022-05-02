@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { TokenStorageService } from './token-storage.service';
 
 const API_URL = environment.apiUrl
 
@@ -10,7 +11,10 @@ const API_URL = environment.apiUrl
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenStorageService
+    ) { }
 
   register(username: string, email: string, password: string, address: string, phone_number: string, gender: string): Observable<any> {
     return this.http.post(`${API_URL}/register`, {
@@ -25,6 +29,10 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(`${API_URL}/login`, {email: email, password: password}, {withCredentials:true});
+  }
+
+  isLoggedIn(): boolean {
+    return this.tokenService.getToken() ? true : false
   }
 
   logout(): Observable<any> {

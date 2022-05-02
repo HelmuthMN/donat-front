@@ -12,7 +12,8 @@ export class TokenStorageService {
 
   constructor(
     private cookieService: CookieService
-  ) { }
+  ) {
+   }
   
   singOut(): void {
     localStorage.clear();
@@ -27,7 +28,7 @@ export class TokenStorageService {
     return localStorage.getItem(TOKEN);
   }
 
-  public saveUser(user: any, isAdmin: any): void {
+  public saveUser(user: string, isAdmin: string): void {
     localStorage.removeItem(USER);
     localStorage.setItem(USER, user);
     localStorage.setItem(IS_ADMIN, isAdmin);
@@ -38,14 +39,13 @@ export class TokenStorageService {
     if(user) {
       return user;
     }
-
     return null;
   }
 
-  public getIsAdmin(): any {
+  public isAdmin(): boolean{
     const isAdmin = localStorage.getItem(IS_ADMIN)
     if (isAdmin){
-      return isAdmin
+      return true
     }
     return false;
   }

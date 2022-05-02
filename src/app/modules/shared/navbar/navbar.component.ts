@@ -1,4 +1,5 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { AuthGuard } from 'src/app/core/services/auth/auth.guard';
 import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
 
 @Component({
@@ -12,11 +13,10 @@ export class NavbarComponent implements OnInit {
   roles: string[] = [];
 
   constructor(
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
   ) { }
 
   ngOnInit(): void {
-      this.isAdmin = this.tokenStorage.getIsAdmin()
    }
 
   handleLoggedIn() {
@@ -28,6 +28,6 @@ export class NavbarComponent implements OnInit {
   }
 
   handleIsAdmin(): boolean{
-    if(this.isAdmin){return true} return false;
+    return this.tokenStorage.isAdmin() ? true : false;
   }
 }

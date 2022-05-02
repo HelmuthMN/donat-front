@@ -26,7 +26,6 @@ export class AuthTokenInterceptor implements HttpInterceptor {
       {  
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {
-                // auto logout if 401 response returned from api
                 this.showSessionExpiredPopUp()
             }
             const error = err.error.message || err.statusText;
@@ -36,7 +35,6 @@ export class AuthTokenInterceptor implements HttpInterceptor {
     }
 }
 
-
 showSessionExpiredPopUp() {
         Swal.fire({
             title: 'Your session expired!',
@@ -44,7 +42,7 @@ showSessionExpiredPopUp() {
         }).then((result) => {
             this.authService.logout()
             this.tokenStorage.singOut();
-            this.router.navigate(['/login']);
+            this.router.navigate(['/conta/logar']);
         });
     }
 }
