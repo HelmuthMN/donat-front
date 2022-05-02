@@ -1,4 +1,6 @@
 body {
+    margin-left: 1em;
+    margin-right: 1em;
     margin-top: 4em;
     background-color: #fafafa;
     margin-bottom: 5em;
@@ -39,4 +41,43 @@ a {
 
 p-button{ 
     padding-left: 0.5em;
+}
+
+.imgInstitution{
+    display: flex;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-top: 0.8em;
+    h3{
+        margin: 0;
+        margin-bottom: -0.1em;
+    }
+
+    &__boleto{
+        display: flex;
+        flex-direction: column;
+        padding-top: 1.2em;
+        line-height: 2;
+
+        input{
+            width: 90%;
+        }
+    }
+
+    &__buttons{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        button{
+            margin: 1em;
+        }
+    }
+}
+
+:host ::ng-deep .p-dialog-footer{
+    text-align: center;
 }

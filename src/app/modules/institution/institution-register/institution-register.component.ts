@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api';
 import { InstitutionRequestService } from 'src/app/core/services/institution_request/institution-request.service';
 import * as cep from 'cep-promise'
 import { CepService } from 'src/app/core/services/cep/cep.service';
+import { Router } from '@angular/router';
 
 const CELLPHONE = '(99) 99999-9999';
 const LANDLINE= '(99) 9999-9999';
@@ -39,12 +40,13 @@ export class InstitutionRegisterComponent implements OnInit {
     private institutionRequestService: InstitutionRequestService,
     private cepService: CepService,
     private messageService: MessageService,
+    private router: Router
 
   ) {
     this.types=[
-      {name:'Igreja Católica', value:'catolica'},
+      {name:'Católica', value:'catolica'},
       {name:'Ong', value:'ong'}, 
-      {name:'Igreja Protestante', value:'protestante'}
+      {name:'Protestante', value:'protestante'}
     ],
     this.stateOptions = [{label: 'Telefone', value: 'telephone'}, {label: 'Celular', value: 'cellphone'}];
    }
@@ -85,8 +87,14 @@ export class InstitutionRegisterComponent implements OnInit {
     this.form.controls['url'].setValue('https://' + this.form.get('url')?.value)
     this.form.controls['address'].setValue(this.form.get('address')?.value + `, ${this.addressNumber}`)
     this.institutionRequestService.createRequestInstitution(this.form?.value).subscribe(
-        data => this.messageService.add({severity:'success', summary:'Service Message', detail:'Pedido realizado!'}),
-        err => {
+        data => {
+          this.messageService.add({severity:'success', summary:'Service Message', detail:'Pedido realizado!'})
+           setTimeout(
+            () => { 
+              this.router.navigate(['/']); 
+            }, 4200)
+          },
+          err => {
           this.messageService.add({severity:'error', summary:'Service Message', detail:'Ocorreu um erro!'}),
           console.log('HTTP Error', err.errorMessage)
         },

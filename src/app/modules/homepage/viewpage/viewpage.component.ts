@@ -3,6 +3,9 @@ import { InstitutionHomeGet } from 'src/app/core/model/institution.model';
 import { InstitutionService } from 'src/app/core/services/institution/institution.service';
 import { take } from 'rxjs';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { AuthGuard } from 'src/app/core/services/auth/auth.guard';
 
 interface carouselItem {
   image: string,
@@ -23,6 +26,7 @@ export class ViewpageComponent implements OnInit {
   constructor(
     private institutionService: InstitutionService,
     private router: Router,
+    private authGuard: AuthGuard
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +52,7 @@ export class ViewpageComponent implements OnInit {
   }
 
   goToInstitution(id: string) {
-    this.router.navigate(['/instituicoes/i/'], { queryParams: { _id: id } })
+    this.authGuard.canActivate() ? this.router.navigate(['/instituicoes/i/'], { queryParams: { _id: id } }) : false
   }
 
   handleCarouselClick() {

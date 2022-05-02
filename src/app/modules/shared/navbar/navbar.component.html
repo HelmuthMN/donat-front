@@ -31,7 +31,7 @@
           </a>
         </li>
         <li><a>|</a></li>
-        <div class="navbar-link" *ngIf="handleLoggedIn() == false">
+        <div class="navbar-link" *ngIf="!handleLoggedIn()">
           <li class="navbar-item">
             <a class="navbar-link" routerLink="/conta/logar" routerLinkActive="active">
               Login
@@ -44,7 +44,7 @@
             </a>
           </li>
         </div>
-        <div class="navbar-link" *ngIf="handleLoggedIn() == true">
+        <div class="navbar-link" *ngIf="handleLoggedIn()">
           <app-user-dropdown></app-user-dropdown>
         </div>
       </ul>

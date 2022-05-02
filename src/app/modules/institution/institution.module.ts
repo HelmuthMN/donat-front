@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {InputNumberModule} from 'primeng/inputnumber';
     FormsModule,
     ToastModule,
     SelectButtonModule,
-    InputNumberModule
+    InputNumberModule,
+    DialogModule,
   ],
   exports: [
     InstitutionPageComponent

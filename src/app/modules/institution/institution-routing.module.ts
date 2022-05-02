@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Router, RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "src/app/core/services/auth/auth.guard";
 import { InstitutionDetailComponent } from "./institution-detail/institution-detail.component";
 import { InstitutionPageComponent } from "./institution-page/institution-page.component";
 import { InstitutionRegisterComponent } from "./institution-register/institution-register.component";
@@ -11,7 +12,8 @@ const routes: Routes = [
     },
     {
         path: 'i',
-        component: InstitutionDetailComponent
+        component: InstitutionDetailComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "registrar",
