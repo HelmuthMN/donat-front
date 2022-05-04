@@ -12,7 +12,7 @@
                 [autoplayInterval]="8000">
                 <ng-template let-product pTemplate="item">
                     <div class="main-content__right__carousel__product-item">
-                        <p-image (click)="handleCarouselClick()" src="{{product.image}}" alt="Image" width="790" height="495"></p-image>
+                        <p-image (click)="handleCarouselClick(product.link)" src="{{product.image}}" alt="Image" width="798" height="495"></p-image>
                         <div class="main-content__right__carousel__product-item__text">
                             <h4 class="mb-1">{{product.title}}</h4>
                             <p class="main-content__right__carousel__product-item__text__t">{{product.description}}</p>
