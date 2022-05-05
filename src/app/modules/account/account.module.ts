@@ -10,6 +10,9 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
 import {DropdownModule} from 'primeng/dropdown';
+import {PasswordModule} from 'primeng/password';
+import {MultiSelectModule} from 'primeng/multiselect';
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -26,6 +29,8 @@ import {DropdownModule} from 'primeng/dropdown';
     InputTextModule,
     InputMaskModule,
     DropdownModule,
+    PasswordModule,
+    MultiSelectModule,
   ],
   exports: [
     LoginComponent,

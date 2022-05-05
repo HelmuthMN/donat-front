@@ -1,6 +1,6 @@
 @import "../../../../shared/variables";
 
-.card {
+/*.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +8,7 @@
     align-items: center;
     margin-top: 3.8em;
 }
-
+*/
 .card .profile-img-card{
     max-width: 20em;
     max-height: 20em;
@@ -89,4 +89,44 @@
 }
 .gender:first-letter {
     text-transform:capitalize;
+}
+
+.p-inputtext {
+    margin: 2px;
+}
+.p-fluid .p-inputtext {
+    width: 250%;
+}
+.senha{
+    width: 250%;
+}
+
+.telefone{
+    width: 250%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    padding-top: 1em;
+    justify-content: center;
+}
+
+.p-fluid, form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    font-size: 1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: black;
 }
