@@ -1,45 +1,62 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <form [formGroup]="form" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Nome Completo</label>
-        <input type="text" placeholder="Digite seu nome completo" class="form-control" name="username" formControlName="username" required minlength="3" maxlength="20" />
-        
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" placeholder="Digite seu email" class="form-control" formControlName="email" name="email" required email />
-      </div>
-      <div class="form-group">
-        <label for="password">Senha</label>
-        <input type="password" placeholder="Digite sua senha" class="form-control" name="password" formControlName="password" required minlength="6" />
-      </div>
-      <div class="form-group">
-        <label for="address">Endereço</label>
-        <input type="text" placeholder="Digite seu endereço" class="form-control" name="address" formControlName="address" required minlength="6" />
-      </div>
-      <div class="form-group">
-        <label for="phone_number">Número de Telefone</label>
-        <input type="text" placeholder="Digite seu número para contato" />
-      </div>
-      <div class="col-12 md:col-6 lg:col-4">
-        <span>Phone</span>
-        <p-inputMask mask="(99) 99999-9999"  placeholder="(99) 99999-9999"></p-inputMask>
-      </div>
-      <div class="form-group">
-        <label for="gender">Gênero</label>
-        <select formControlName="gender" name="gender">
-          <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
-      </div>
-    </form>
+<div class="card">
+  <h1>Cadastro de usuário</h1>
+  <div class="grid">
+    <div class="flex align-items-center justify-content-center">
+      <div class="p-fluid">
+        <form [formGroup]="form" class="p-field" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()">
+          <div class="col-10 inputs-register">
+            
+            <div class="form-group field">
+              <label for="username">Nome Completo</label>
+              <input type="text" placeholder="Digite seu nome completo" name="username" formControlName="username"
+                required minlength="3" maxlength="20" pInputText />
+            </div>
 
-    <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+            <div class="form-group field">
+              <label for="email">Email</label>
+              <input type="email" placeholder="Digite seu email" name="email" formControlName="email" required email
+                pInputText />
+            </div>
+
+            <div class="form-group field">
+              <label for="password">Senha</label>
+              <p-password class="senha" type="password" placeholder="Digite sua senha" name="password" formControlName="password"
+                required minlength="6" [toggleMask]="true"></p-password>
+            </div>
+
+            <div class="form-group field">
+              <label for="address">Endereço</label>
+              <input type="text" placeholder="Digite seu endereço" name="address" formControlName="address" required
+                minlength="6" pInputText />
+            </div>
+
+            <div class="form-group field">
+              <span class="titulo" for="phone_number">Número de Telefone</span>
+              <p-inputMask class="telefone" type="text" mask="(99) 99999-9999" placeholder="Digite seu número para contato">
+              </p-inputMask>
+            </div>
+
+            <div class="form-group field">
+              <label for="gender">Gênero</label>
+              <p-dropdown id="genders" [options]="genders" name="gender"
+                formControlName="gender" optionValue="gender"></p-dropdown>
+            </div>
+
+          </div>
+          <!--
+          <div class="form-group field">
+            <button [disabled]="!form.valid" pButton label="Sign Up"></button>
+          </div>
+          -->
+          <div class="form-group field">
+            <button pButton label="Sign Up"></button>
+          </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div>
+      </div>
     </div>
   </div>
 </div>
