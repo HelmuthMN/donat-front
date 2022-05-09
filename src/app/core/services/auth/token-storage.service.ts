@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 const TOKEN = 'access_token';
-const USER =  'username';
+const USER =  'full_name';
 const IS_ADMIN = 'is_admin';
 
 @Injectable({

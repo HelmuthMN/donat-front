@@ -2,49 +2,57 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  providers: [MessageService]
 })
 export class RegisterComponent implements OnInit {
 
   form!: FormGroup;
-  isSuccessful = false;
-  isSignUpFailed = false;
   errorMessage = '';
   genders = ['Male','Female'];
+  mask!: string;
+  stateOptions: { label: string; value: string; }[];
 
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private messageService: MessageService,
     private router: Router
-    ) { }
+    ) {
+        this.stateOptions = [{label: 'Telefone', value: 'telephone'}, {label: 'Celular', value: 'cellphone'}];
+     }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      username: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      email: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
+      full_name: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
+      email: new FormControl('', Validators.compose([Validators.required, Validators.email, Validators.max(30)])),
       password: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      address: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      phone_number: new FormControl('', Validators.compose([Validators.required, Validators.max(30)])),
-      gender: new FormControl('', Validators.compose([Validators.required, Validators.max(30)]))
+      phone_number: new FormControl('', Validators.compose([Validators.required])),
     });
   }
 
+   handleSelectButton(event: any) {
+    event.value === 'cellphone' ? this.mask = 'cellphone' : this.mask = 'telephone'
+  }
+
   onSubmit(): void {
-    const gender = this.form.get('gender')?.value.toLowerCase();
-    this.authService.register(this.form.get('username')?.value, this.form.get('email')?.value, this.form.get('password')?.value, 
-    this.form.get('address')?.value, this.form.get('phone_number')?.value, gender).subscribe(
+    this.authService.register(this.form.get('full_name')?.value, this.form.get('email')?.value, this.form.get('password')?.value, 
+    this.form.get('phone_number')?.value).subscribe(
       data =>  {
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        this.router.navigate(['/conta/logar']);
+        this.messageService.add({severity:'success', summary:'Service Message', detail:'Registrado com sucesso!'})
+        setTimeout(
+          () => { 
+            this.router.navigate(['/conta/logar']);
+          }, 4200)
       },
       err => {
-         this.errorMessage = err.error.message;
-         this.isSignUpFailed = true;
+        this.messageService.add({severity:'error', summary:'Service Message', detail:'Revise os dados inseridos!'}),
+        console.log('HTTP Error', err.errorMessage)
       }
     );
   }

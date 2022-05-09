@@ -24,15 +24,11 @@
       <form [formGroup]="form" *ngIf="isLoggedIn" name="form">
         <div class="form-group">
           <label for="username">Nome de Usuário</label>
-          <input type="text" [placeholder]="user['username']" class="form-control" name="username" formControlName="username" minlength="3" maxlength="20"/>
+          <input type="text" [placeholder]="user['full_name']" class="form-control" name="full_name" formControlName="full_name" minlength="3" maxlength="20"/>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" placeholder="{{user['email']}}" class="form-control" formControlName="email" name="email" email/>
-        </div>
-        <div class="form-group">
-          <label for="address">Endereço</label>
-          <input type="text" placeholder="{{user['address']}}" class="form-control" name="address" formControlName="address" minlength="6"/>
         </div>
         <div class="form-group">
           <label for="phone_number">Número de Telefone</label>

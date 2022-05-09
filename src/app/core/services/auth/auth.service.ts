@@ -16,14 +16,12 @@ export class AuthService {
     private tokenService: TokenStorageService
     ) { }
 
-  register(username: string, email: string, password: string, address: string, phone_number: string, gender: string): Observable<any> {
+  register(full_name: string, email: string, password: string, phone_number: string): Observable<any> {
     return this.http.post(`${API_URL}/register`, {
-      username: username,
+      full_name: full_name,
       email: email,
       password: password,
-      address: address,
-      phone_number: phone_number,
-      gender: gender
+      phone_number: phone_number
     });
   }
 

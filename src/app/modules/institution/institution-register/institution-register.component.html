@@ -1,110 +1,140 @@
 <div class="card">
   <h1>Formulário de Registro</h1>
-  <div class="grid">  
+  <div class="grid">
     <div class="flex align-items-center justify-content-center">
       <div class="p-fluid">
         <form [formGroup]="form" class="p-field" name="form" (ngSubmit)="onSubmit()">
-            <div class="col-10 inputs-register">
-              <div class="form-group field">
-                <label for="name">Nome da instituicão</label>
-                <input pInputText id="name" type="text" class="form-control" placeholder="Insira o nome da Instituição" name="name" formControlName="name" required />
-                <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid || form.get('name')?.dirty" class="alert alert-danger">
-                  <small class="p-error block" *ngIf="form.get('name')?.errors?.['required']">Insira um nome</small>
-                </div>
-              </div>
-              <div class="form-group field">
-                <label for="email">Email</label>
-                <input pInputText id="email" type="text" 
-                [class.is-invalid] = "form.get('email')?.invalid && form.get('email')?.touched" 
-                class="form-control" placeholder="Ex: example@example.com" name="email" formControlName="email" required />
-                    <div *ngIf="(form.get('email')?.invalid && form.get('email')?.touched) || form.get('email')?.dirty">
-                      <small class="p-error block" *ngIf="form.get('email')?.errors?.['required']">E-mail é obrigatório</small>
-                      <small class="p-error block" *ngIf="form.get('email')?.errors?.['email']">E-mail inserido é inválido</small>
-                    </div>
-              </div>
-              <div class="form-group field">
-                <label for="url">Site da Instituição</label>
-                <input pInputText id="url"
-                  placeholder="Ex: example.com"
-                  type="text" class="form-control" bname="url" formControlName="url" required />
-                  <div *ngIf="form.get('url')?.touched && form.get('url')?.invalid || form.get('email')?.dirty" class="alert alert-danger">
-                    <small class="p-error block" *ngIf="form.get('url')?.errors?.['required']">Insira uma url</small>
-                    <small class="p-error block" *ngIf="form.get('url')?.errors?.['pattern']">Insira uma url válida</small>
-                  </div>
-              </div>
-              <div class="form-group field">
-                <label for="cep">CEP</label>
-                <p-inputMask mask="99999-999" id="cep" (onBlur)="handleCep(form.get('cep')?.value)"
-                [class.is-invalid] = "form.get('cep')?.invalid && form.get('cep')?.touched" 
-                type="text" class="form-control" placeholder="Insira o cep (Apenas números)" name="cep" formControlName="cep"></p-inputMask>
-                <div *ngIf="(form.get('cep')?.invalid && form.get('cep')?.touched) || form.get('cep')?.dirty">
-                    <small class="p-error block" *ngIf="form.get('cep')?.errors?.['required']">Número do CEP é obrigatório</small>
-                    <small class="p-error block" *ngIf="form.get('cep')?.errors?.['cep']">CEP inválido</small>
-                </div>
-              </div>
-              <div class="form-group addressField">
-                <div class="address field">
-                  <label for="address">Endereço</label>
-                  <input pInputText id="address" type="text" class="form-control" placeholder="Insira o endereço" name="address" formControlName="address" required />
-                  <div *ngIf="form.get('address')?.touched && form.get('address')?.invalid || form.get('address')?.dirty" class="alert alert-danger">
-                    <small class="p-error block" *ngIf="form.get('address')?.errors?.['required']">Insira um endereço</small>
-                  </div> 
-                </div>
-                <div class="number field">
-                    <label for="number">Número</label>
-                    <p-inputNumber id="number" placeholder="00" (onBlur)="setAddressNumber($event)"></p-inputNumber>
-                  </div>
-              </div>
-              <div class="form-group field">
-                <label for="phone_number">Escolha entre:</label>
-                <p-selectButton (onChange)="handleSelectButton($event)" [options]="stateOptions" 
-                optionLabel="label" optionValue="value"></p-selectButton>
-                  <div class="input-mask" *ngIf="mask === 'telephone'" >
-                      <p-inputMask id="phone_number" mask="(99) 9999-9999" 
-                      type="text" class="form-control" 
-                      placeholder="Insira o número de telefone (apenas números)" 
-                      name="phone_number" 
-                      formControlName="phone_number"></p-inputMask>
-                      <div *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
-                        <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de telefone é obrigatório</small>
-                        <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Telefone inválido</small>
-                      </div>
-                  </div>
-                  <div class="input-mask" *ngIf="mask === 'cellphone'" >
-                      <p-inputMask id="phone_number" mask="(99) 99999-9999" 
-                      type="text" class="form-control" 
-                      placeholder="Insira o número de celular (apenas números)" 
-                      name="phone_number" 
-                      formControlName="phone_number"></p-inputMask>
-                      <div *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
-                        <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de celular é obrigatório</small>
-                        <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Celular inválido</small>
-                      </div>
-                  </div>
-              </div>
-              <div class="form-group field">
-                <label for="image">Imagem da Instituição</label>
-                <p-fileUpload [showUploadButton]="false" [showCancelButton]="true" mode="advanced" name="image[]" (onSelect)="onFileSelected($event)" cancelLabel="Remover" chooseLabel="Escolher..." accept="image/*"></p-fileUpload>
-              </div>
-              <div class="form-group field">
-                <label for="institution_type">Tipo de Instituição</label>
-                <p-dropdown id="institution_type" [options]="types" name="institution_type" formControlName="institution_type" optionLabel="name" optionValue="value"></p-dropdown>
-              </div>
-            </div>
+          <div class="col-10 inputs-register">
+
             <div class="form-group field">
-              <label for="request_text">Texto para requisição</label>
-              <textarea [rows]="10" [cols]="50" pInputTextarea placeholder="" name="request_text" formControlName="request_text" required ></textarea>
-              <div *ngIf="form.get('request_text')?.touched && form.get('request_text')?.invalid || form.get('request_text')?.dirty" class="alert alert-danger">
-                <small class="p-error block" *ngIf="form.get('request_text')?.errors?.['required']">Insira o texto de requisição</small>
+              <label for="name">Nome da instituicão</label>
+              <input pInputText id="name" type="text" class="form-control" placeholder="Insira o nome da Instituição"
+                name="name" formControlName="name" required />
+              <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid || form.get('name')?.dirty"
+                class="alert alert-danger">
+                <small class="p-error block" *ngIf="form.get('name')?.errors?.['required']">Insira um nome</small>
               </div>
             </div>
+
             <div class="form-group field">
-              <button [disabled]="!form.valid" pButton label="Enviar Formulário"></button>
+              <label for="email">Email</label>
+              <input pInputText id="email" type="text"
+                [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched" class="form-control"
+                placeholder="Ex: example@example.com" name="email" formControlName="email" required />
+              <div *ngIf="(form.get('email')?.invalid && form.get('email')?.touched) || form.get('email')?.dirty">
+                <small class="p-error block" *ngIf="form.get('email')?.errors?.['required']">E-mail é
+                  obrigatório</small>
+                <small class="p-error block" *ngIf="form.get('email')?.errors?.['email']">E-mail inserido é
+                  inválido</small>
+              </div>
             </div>
-          </form>
+
+            <div class="form-group field">
+              <label for="url">Site da Instituição</label>
+              <input pInputText id="url" placeholder="Ex: example.com" type="text" class="form-control" bname="url"
+                formControlName="url" required />
+              <div *ngIf="form.get('url')?.touched && form.get('url')?.invalid || form.get('email')?.dirty"
+                class="alert alert-danger">
+                <small class="p-error block" *ngIf="form.get('url')?.errors?.['required']">Insira uma url</small>
+                <small class="p-error block" *ngIf="form.get('url')?.errors?.['pattern']">Insira uma url válida</small>
+              </div>
+            </div>
+
+            <div class="form-group field">
+              <label for="cep">CEP</label>
+              <p-inputMask mask="99999-999" id="cep" (onBlur)="handleCep(form.get('cep')?.value)"
+                [class.is-invalid]="form.get('cep')?.invalid && form.get('cep')?.touched" type="text"
+                class="form-control" placeholder="Insira o cep (Apenas números)" name="cep" formControlName="cep">
+              </p-inputMask>
+              <div *ngIf="(form.get('cep')?.invalid && form.get('cep')?.touched) || form.get('cep')?.dirty">
+                <small class="p-error block" *ngIf="form.get('cep')?.errors?.['required']">Número do CEP é
+                  obrigatório</small>
+                <small class="p-error block" *ngIf="form.get('cep')?.errors?.['cep']">CEP inválido</small>
+              </div>
+            </div>
+
+            <div class="form-group addressField">
+              <div class="address field">
+                <label for="address">Endereço</label>
+                <input pInputText id="address" type="text" class="form-control" placeholder="Insira o endereço"
+                  name="address" formControlName="address" required />
+                <div *ngIf="form.get('address')?.touched && form.get('address')?.invalid || form.get('address')?.dirty"
+                  class="alert alert-danger">
+                  <small class="p-error block" *ngIf="form.get('address')?.errors?.['required']">Insira um
+                    endereço</small>
+                </div>
+              </div>
+
+              <div class="number field">
+                <label for="number">Número</label>
+                <p-inputNumber id="number" placeholder="00" (onBlur)="setAddressNumber($event)"></p-inputNumber>
+              </div>
+            </div>
+
+            <div class="form-group field">
+              <label for="phone_number">Escolha entre:</label>
+              <p-selectButton (onChange)="handleSelectButton($event)" [options]="stateOptions" optionLabel="label"
+                optionValue="value"></p-selectButton>
+              <div class="input-mask" *ngIf="mask === 'telephone'">
+                <p-inputMask id="phone_number" mask="(99) 9999-9999" type="text" class="form-control"
+                  placeholder="Insira o número de telefone (apenas números)" name="phone_number"
+                  formControlName="phone_number"></p-inputMask>
+                <div
+                  *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de telefone
+                    é obrigatório</small>
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Telefone
+                    inválido</small>
+                </div>
+              </div>
+
+              <div class="input-mask" *ngIf="mask === 'cellphone'">
+                <p-inputMask id="phone_number" mask="(99) 99999-9999" type="text" class="form-control"
+                  placeholder="Insira o número de celular (apenas números)" name="phone_number"
+                  formControlName="phone_number"></p-inputMask>
+                <div
+                  *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de celular
+                    é obrigatório</small>
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Celular
+                    inválido</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group field">
+              <label for="image">Imagem da Instituição</label>
+              <p-fileUpload [showUploadButton]="false" [showCancelButton]="true" mode="advanced" name="image[]"
+                (onSelect)="onFileSelected($event)" cancelLabel="Remover" chooseLabel="Escolher..." accept="image/*">
+              </p-fileUpload>
+            </div>
+
+            <div class="form-group field">
+              <label for="institution_type">Tipo de Instituição</label>
+              <p-dropdown id="institution_type" [options]="types" name="institution_type"
+                formControlName="institution_type" optionLabel="name" optionValue="value"></p-dropdown>
+            </div>
+          </div>
+
+          <div class="form-group field">
+            <label for="request_text">Texto para requisição</label>
+            <textarea [rows]="10" [cols]="50" pInputTextarea placeholder="" name="request_text"
+              formControlName="request_text" required></textarea>
+            <div
+              *ngIf="form.get('request_text')?.touched && form.get('request_text')?.invalid || form.get('request_text')?.dirty"
+              class="alert alert-danger">
+              <small class="p-error block" *ngIf="form.get('request_text')?.errors?.['required']">Insira o texto de
+                requisição</small>
+            </div>
+          </div>
+          
+          <div class="form-group field">
+            <button [disabled]="!form.valid" pButton label="Enviar Formulário"></button>
+          </div>
+        </form>
       </div>
     </div>
-</div>
+  </div>
 </div>
 
 <p-toast></p-toast>

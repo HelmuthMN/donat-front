@@ -33,10 +33,9 @@ export class UserProfileComponent implements OnInit {
   
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      username: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
+      full_name: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
       email: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
       // password: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
-      address: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
       phone_number: new FormControl({value: '', disabled: true}, Validators.compose([Validators.required, Validators.max(30)])),
     });
     this.getUser();

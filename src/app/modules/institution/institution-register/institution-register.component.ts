@@ -6,9 +6,6 @@ import * as cep from 'cep-promise'
 import { CepService } from 'src/app/core/services/cep/cep.service';
 import { Router } from '@angular/router';
 
-const CELLPHONE = '(99) 99999-9999';
-const LANDLINE= '(99) 9999-9999';
-
 interface ITypes{
     name: string,
     value: string

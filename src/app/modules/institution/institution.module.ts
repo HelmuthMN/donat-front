@@ -20,7 +20,6 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 
-
 @NgModule({
   declarations: [
     InstitutionPageComponent,

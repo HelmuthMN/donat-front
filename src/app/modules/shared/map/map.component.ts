@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import 'ol/ol.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -10,6 +10,11 @@ import VectorLayer from 'ol/layer/Vector';
 import {Icon, Style} from 'ol/style';
 import Feature from 'ol/Feature';
 import { Point } from 'ol/geom';
+import { catchError, map, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+declare var H: any;
+
 
 @Component({
   selector: 'app-map',
@@ -19,53 +24,47 @@ import { Point } from 'ol/geom';
 
 export class MapComponent implements OnInit {
   
-  public map!: Map  
+  private map = H.Map;
+
+  @ViewChild('map')
+  private mapElement!: ElementRef;
+
+  private platform: any;
+
+
   @Input() lat: number = -23.96014;
   @Input() lon: number = -46.33484;
   @Input() zoom: number = 13;
-  
-  
-  ngOnInit(): void {
-    
 
-    this.map = new Map({
-    layers: [
-      new TileLayer({
-        source: new OSM(),
-      }),
-    ],
+  constructor() {
+    this.platform = new H.service.Platform({
+      "apikey": "mQ3A_-TTvCNNwH5OZ9S6PkImzlx2K1UPQQU3V_ko8kQ"
+    })
+  }
 
-    target: 'map',
-    view: new View({ 
-      center: Proj.fromLonLat([this.lon, this.lat]),
-      zoom: this.zoom
-    }),
-  });
+  ngOnInit(): void { }
 
-  const iconFeature = new Feature({
-      geometry: new Point(Proj.fromLonLat([this.lon, this.lat])),
-    });
+   public ngAfterViewInit() {
+    const defaultLayers = this.platform.createDefaultLayers();
+    this.map = new H.Map(
+      this.mapElement.nativeElement,
+      defaultLayers.vector.normal.map,
+      {
+        zoom: this.zoom,
+        center: { lat: this.lat, lng: this.lon }
+      },
+    );
+    this.map.addEventListener('resize', () => this.map.getViewPort().resize());
 
-    const iconStyle = new Style({
-      image: new Icon({
-        anchor: [0.5, 1],
-        src: './assets/images/pointer.png',
-      }),
-    });
+    let behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(this.map))
 
-    iconFeature.setStyle(iconStyle);
+    const ui = H.ui.UI.createDefault(this.map, defaultLayers);
 
-    const vectorSource = new VectorSource({
-      features: [iconFeature],
-    });
+    const icon = new H.map.Icon('./assets/images/pointer.png');
 
-    const vectorLayer = new VectorLayer({
-      source: vectorSource,
-    });
+    const marker = new H.map.Marker({ lat: this.lat, lng: this.lon }, { icon: icon });
 
-    vectorLayer.setZIndex(10);
+    this.map.addObject(marker);
 
-
-  this.map.addLayer(vectorLayer)
- }
+  }
 }

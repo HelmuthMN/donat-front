@@ -3,14 +3,13 @@ import { InstitutionHomeGet } from 'src/app/core/model/institution.model';
 import { InstitutionService } from 'src/app/core/services/institution/institution.service';
 import { take } from 'rxjs';
 import { Router } from '@angular/router';
-import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { AuthGuard } from 'src/app/core/services/auth/auth.guard';
 
 interface carouselItem {
   image: string,
   title: string,
-  description: string
+  description: string,
+  link: string
 }
 
 @Component({
@@ -36,17 +35,20 @@ export class ViewpageComponent implements OnInit {
       {
         image:"https://cdn.pixabay.com/photo/2019/06/27/04/35/organ-donation-4301527__340.jpg",
         title: "Evento Benecifente no Lar dos Y em Santos, SP",
-        description:"O 4º evento beneficente no Lar dos Y está chegando. Este ano, como de costume, o evento ocorrerá na Rua Bahia, 44."
+        description:"O 4º evento beneficente no Lar dos Y está chegando. Este ano, como de costume, o evento ocorrerá na Rua Bahia, 44.",
+        link: "https://www.diariodolitoral.com.br/cultura/jantar-por-uma-boa-causa-volta-ao-formato-presencial-e-promete-noite/156013/"
       },
       {
         image:"https://s2.glbimg.com/0dalJeIvrTd598bvyDcQ_NQ0mds=/0x0:2048x1365/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/e/E/WoTyEmS4upylBoHoBMCw/48806312816-214599fda3-k.jpg",
         title: "Evento da banda UAYFJ em Santos, SP",
-        description:"A banda UAYFJ no Lar dos Y está chegando. Eles farão um show no Mendes Convention Center, com entrada franca."
+        description:"A banda UAYFJ no Lar dos Y está chegando. Eles farão um show no Mendes Convention Center, com entrada franca.",
+        link: "https://github.com/HelmuthMN/donat-front"
       },
       {
-        image:"https://i.pinimg.com/736x/2e/6f/c3/2e6fc38b8adf29204eb098bc6f3fedc2.jpg",
-        title: "Evento da Congregação dos JJAU em Santos, SP",
-        description:"O primeiro evento da Congregação dos JJAU. Ocorrerá na Avenida Senador Feijó, 168, dia 16/06 a partir das 19hrs."
+        image:"https://www.turismosantos.com.br/static/files_turismosantos/styles/lateral/public/loj%C3%A3o%20v%C3%B3%20benedita.jpg?itok=Y6MdD8-w",
+        title: "Lojão Beneficente Casa Vó Benedita",
+        description:"Entre os dias 1 e 3 de abril a Casa Vó Benedita promove um Lojão Beneficente no Salão de Mármore do Santos Futebol Clube, das 9h às 19h. Estarão a venda roupas, calçados e acessórios novos e seminovos.",
+        link: "https://www.turismosantos.com.br/?q=pt-br/content/loj%C3%A3o-beneficente-casa-v%C3%B3-benedita"
       },
     ]
   }
@@ -55,8 +57,8 @@ export class ViewpageComponent implements OnInit {
     this.authGuard.canActivate() ? this.router.navigate(['/instituicoes/i/'], { queryParams: { _id: id } }) : false
   }
 
-  handleCarouselClick() {
-    const url = 'https://github.com/HelmuthMN/donat-front';
+  handleCarouselClick(url: string) {
+    // const url = 'https://github.com/HelmuthMN/donat-front';
     window.open(url, '_blank');
   }
 }

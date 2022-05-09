@@ -1,45 +1,73 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <form [formGroup]="form" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Nome Completo</label>
-        <input type="text" placeholder="Digite seu nome completo" class="form-control" name="username" formControlName="username" required minlength="3" maxlength="20" />
-        
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" placeholder="Digite seu email" class="form-control" formControlName="email" name="email" required email />
-      </div>
-      <div class="form-group">
-        <label for="password">Senha</label>
-        <input type="password" placeholder="Digite sua senha" class="form-control" name="password" formControlName="password" required minlength="6" />
-      </div>
-      <div class="form-group">
-        <label for="address">Endereço</label>
-        <input type="text" placeholder="Digite seu endereço" class="form-control" name="address" formControlName="address" required minlength="6" />
-      </div>
-      <div class="form-group">
-        <label for="phone_number">Número de Telefone</label>
-        <input type="text" placeholder="Digite seu número para contato" />
-      </div>
-      <div class="col-12 md:col-6 lg:col-4">
-        <span>Phone</span>
-        <p-inputMask mask="(99) 99999-9999"  placeholder="(99) 99999-9999"></p-inputMask>
-      </div>
-      <div class="form-group">
-        <label for="gender">Gênero</label>
-        <select formControlName="gender" name="gender">
-          <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
-      </div>
-    </form>
+<div class="card">
+  <h1>Cadastro de usuário</h1>
+  <div class="grid">
+    <div class="flex align-items-center justify-content-center">
+      <div class="p-fluid">
+        <form [formGroup]="form" class="p-field" name="form" (ngSubmit)="onSubmit()">
+          <div class="inputs-register">
+            
+            <div class="form-group field">
+              <label for="full_name">Nome Completo</label>
+              <input type="text" placeholder="Digite seu nome completo" name="full_name" formControlName="full_name"
+                required minlength="3" maxlength="20" pInputText />
+            </div>
 
-    <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+            <div class="form-group field">
+             <label for="email">Email</label>
+              <input pInputText id="email" type="text"
+                [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched" class="form-control"
+                placeholder="Ex: example@example.com" name="email" formControlName="email" required />
+              <div *ngIf="(form.get('email')?.invalid && form.get('email')?.touched) || form.get('email')?.dirty">
+                <small class="p-error block" *ngIf="form.get('email')?.errors?.['required']">E-mail é
+                  obrigatório</small>
+                <small class="p-error block" *ngIf="form.get('email')?.errors?.['email']">E-mail inserido é
+                  inválido</small>
+              </div>
+            </div>
+
+            <div class="form-group field">
+              <label for="password">Senha</label>
+              <p-password class="senha" type="password" placeholder="Digite sua senha" name="password" formControlName="password"
+                required minlength="6" [toggleMask]="true"></p-password>
+            </div>
+
+            <div class="form-group field">
+              <label for="phone_number">Escolha entre:</label>
+              <p-selectButton (onChange)="handleSelectButton($event)" [options]="stateOptions" optionLabel="label"
+                optionValue="value"></p-selectButton>
+              <div class="input-mask" *ngIf="mask === 'telephone'">
+                <p-inputMask id="phone_number" mask="(99) 9999-9999" type="text" class="form-control"
+                  placeholder="Insira o número de telefone (apenas números)" name="phone_number"
+                  formControlName="phone_number"></p-inputMask>
+                <div
+                  *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de telefone
+                    é obrigatório</small>
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Telefone
+                    inválido</small>
+                </div>
+              </div>
+              <div class="input-mask" *ngIf="mask === 'cellphone'">
+                <p-inputMask id="phone_number" mask="(99) 99999-9999" type="text" class="form-control"
+                  placeholder="Insira o número de celular (apenas números)" name="phone_number"
+                  formControlName="phone_number"></p-inputMask>
+                <div
+                  *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de celular
+                    é obrigatório</small>
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Celular
+                    inválido</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group field">
+            <button pButton label="Registrar-se"></button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+
+<p-toast></p-toast>
