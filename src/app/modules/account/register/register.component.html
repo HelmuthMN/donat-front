@@ -3,19 +3,26 @@
   <div class="grid">
     <div class="flex align-items-center justify-content-center">
       <div class="p-fluid">
-        <form [formGroup]="form" class="p-field" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()">
-          <div class="col-10 inputs-register">
+        <form [formGroup]="form" class="p-field" name="form" (ngSubmit)="onSubmit()">
+          <div class="inputs-register">
             
             <div class="form-group field">
-              <label for="username">Nome Completo</label>
-              <input type="text" placeholder="Digite seu nome completo" name="username" formControlName="username"
+              <label for="full_name">Nome Completo</label>
+              <input type="text" placeholder="Digite seu nome completo" name="full_name" formControlName="full_name"
                 required minlength="3" maxlength="20" pInputText />
             </div>
 
             <div class="form-group field">
-              <label for="email">Email</label>
-              <input type="email" placeholder="Digite seu email" name="email" formControlName="email" required email
-                pInputText />
+             <label for="email">Email</label>
+              <input pInputText id="email" type="text"
+                [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched" class="form-control"
+                placeholder="Ex: example@example.com" name="email" formControlName="email" required />
+              <div *ngIf="(form.get('email')?.invalid && form.get('email')?.touched) || form.get('email')?.dirty">
+                <small class="p-error block" *ngIf="form.get('email')?.errors?.['required']">E-mail é
+                  obrigatório</small>
+                <small class="p-error block" *ngIf="form.get('email')?.errors?.['email']">E-mail inserido é
+                  inválido</small>
+              </div>
             </div>
 
             <div class="form-group field">
@@ -25,38 +32,42 @@
             </div>
 
             <div class="form-group field">
-              <label for="address">Endereço</label>
-              <input type="text" placeholder="Digite seu endereço" name="address" formControlName="address" required
-                minlength="6" pInputText />
+              <label for="phone_number">Escolha entre:</label>
+              <p-selectButton (onChange)="handleSelectButton($event)" [options]="stateOptions" optionLabel="label"
+                optionValue="value"></p-selectButton>
+              <div class="input-mask" *ngIf="mask === 'telephone'">
+                <p-inputMask id="phone_number" mask="(99) 9999-9999" type="text" class="form-control"
+                  placeholder="Insira o número de telefone (apenas números)" name="phone_number"
+                  formControlName="phone_number"></p-inputMask>
+                <div
+                  *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de telefone
+                    é obrigatório</small>
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Telefone
+                    inválido</small>
+                </div>
+              </div>
+              <div class="input-mask" *ngIf="mask === 'cellphone'">
+                <p-inputMask id="phone_number" mask="(99) 99999-9999" type="text" class="form-control"
+                  placeholder="Insira o número de celular (apenas números)" name="phone_number"
+                  formControlName="phone_number"></p-inputMask>
+                <div
+                  *ngIf="(form.get('phone_number')?.invalid && form.get('phone_number')?.touched) || form.get('phone_number')?.dirty">
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['required']">Número de celular
+                    é obrigatório</small>
+                  <small class="p-error block" *ngIf="form.get('phone_number')?.errors?.['phone_number']">Celular
+                    inválido</small>
+                </div>
+              </div>
             </div>
-
-            <div class="form-group field">
-              <span class="titulo" for="phone_number">Número de Telefone</span>
-              <p-inputMask class="telefone" type="text" mask="(99) 99999-9999" placeholder="Digite seu número para contato">
-              </p-inputMask>
-            </div>
-
-            <div class="form-group field">
-              <label for="gender">Gênero</label>
-              <p-dropdown id="genders" [options]="genders" name="gender"
-                formControlName="gender" optionValue="gender"></p-dropdown>
-            </div>
-
           </div>
-          <!--
           <div class="form-group field">
-            <button [disabled]="!form.valid" pButton label="Sign Up"></button>
-          </div>
-          -->
-          <div class="form-group field">
-            <button pButton label="Sign Up"></button>
+            <button pButton label="Registrar-se"></button>
           </div>
         </form>
-
-        <div class="alert alert-success" *ngIf="isSuccessful">
-          Your registration is successful!
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+<p-toast></p-toast>
