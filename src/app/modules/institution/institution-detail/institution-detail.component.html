@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <p-divider layout="vertical"></p-divider>
-                <div class="payment">
+                <div class="payment" *ngIf="isLoggedIn">
                     <h3>Métodos de Doação</h3>
                     <p-divider></p-divider>
                     <p-dialog header="Boleto" [modal]="true" [(visible)]="display"
@@ -48,6 +48,14 @@
                         </button>
                         <button pButton pRipple type="button" label="Primary" class="p-button-raised p-button-info" label="Pix" disabled>
                         </button>
+                    </div>
+                </div>
+                <div class="payment" *ngIf="!isLoggedIn">
+                    <h3>Métodos de Doação</h3>
+                    <div class="signIn">
+                        <p>Para ver os métodos de doação, <br>
+                        é necessário estar logado</p>
+                        <p-button icon="pi pi-user-plus" label="Entre agora" routerLink='/conta/logar'></p-button>
                     </div>
                 </div>
             </div>

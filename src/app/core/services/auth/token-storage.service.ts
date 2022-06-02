@@ -44,7 +44,7 @@ export class TokenStorageService {
 
   public isAdmin(): boolean{
     const isAdmin = localStorage.getItem(IS_ADMIN)
-    if (isAdmin){
+    if (isAdmin == "true"){
       return true
     }
     return false;

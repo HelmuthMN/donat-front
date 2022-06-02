@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { take } from 'rxjs';
 import { Institution } from 'src/app/core/model/institution.model';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { TokenStorageService } from 'src/app/core/services/auth/token-storage.service';
 import { BoletoService } from 'src/app/core/services/boleto/boleto.service';
 import { InstitutionService } from 'src/app/core/services/institution/institution.service';
@@ -20,13 +21,15 @@ export class InstitutionDetailComponent implements OnInit {
   institutionImage: any;
   display: boolean = false;
   boletoValue!: number;
+  isLoggedIn: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private institutionService: InstitutionService,
     private sanitizer: DomSanitizer,
     private boletoService: BoletoService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private authService: AuthService
     ) {}
 
   ngOnInit(): void {
@@ -34,6 +37,8 @@ export class InstitutionDetailComponent implements OnInit {
   }
 
   handleLoad() {
+    this.isLoggedIn = this.authService.isLoggedIn()
+
     const id = this.route.snapshot.queryParams['_id'];
     
     if(id!= null){

@@ -28,6 +28,6 @@ export class NavbarComponent implements OnInit {
   }
 
   handleIsAdmin(): boolean{
-    return this.tokenStorage.isAdmin() ? true : false;
+    return this.tokenStorage.isAdmin();
   }
 }

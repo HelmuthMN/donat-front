@@ -15,7 +15,7 @@ export class LoggedAuthGuard implements CanActivate {
     canActivate(): boolean {
       if (this._authService.isLoggedIn()) {
           Swal.fire({
-            title: 'Tá logado',
+            title: 'Você já está logado!',
             showClass: {
               popup: 'animate__animated animate__fadeInDown'
             },

@@ -3,11 +3,11 @@
         <div class="main-content__left">
             <h1>Bem-vindos ao Donat.</h1>
             <p>Estamos em construção ;)</p>
-            <img src="https://media.giphy.com/media/aH6g6PuAZ31jG/giphy.gif" alt="">
+            <!-- <img src="https://media.giphy.com/media/aH6g6PuAZ31jG/giphy.gif" alt=""> -->
         </div>
         <p-divider layout="vertical"></p-divider>
         <div class="main-content__right">
-            <h2>Próximos Eventos</h2>
+            <h2>Próximos Eventos Beneficentes</h2>
             <p-carousel class="main-content__right__carousel" [value]="carouselItems" [numVisible]="1" [numScroll]="1" [circular]="true"
                 [autoplayInterval]="8000">
                 <ng-template let-product pTemplate="item">
@@ -50,7 +50,7 @@
     <div class="institution-card">
         <div class="row mt-4 mb-4">
             <div class="col-md-12 text-center">
-                <h2>Algumas intituições presentes em nosso site</h2>
+                <h2>Algumas das intituições presentes em nosso site</h2>
             </div>
         </div>
         <div class="card-container" *ngIf="randomInstitutions">
@@ -68,9 +68,10 @@
             </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row mt-5" *ngIf="!isLoggedIn">
             <div class="flex justify-content-center join">
-                <p-button icon="pi pi-user-plus" label="Seja um Donatover!" routerLink='/conta/registrar'></p-button>
+                <h3>Quer doar por meio de nosso site?</h3>
+                <p-button icon="pi pi-user-plus" label="Registre-se!" routerLink='/conta/registrar'></p-button>
             </div>
         </div>
     </div>

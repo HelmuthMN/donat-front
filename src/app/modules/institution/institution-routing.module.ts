@@ -13,7 +13,7 @@ const routes: Routes = [
     {
         path: 'i',
         component: InstitutionDetailComponent,
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
     {
         path: "registrar",

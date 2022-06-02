@@ -4,6 +4,7 @@ import { InstitutionService } from 'src/app/core/services/institution/institutio
 import { take } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthGuard } from 'src/app/core/services/auth/auth.guard';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 interface carouselItem {
   image: string,
@@ -21,15 +22,19 @@ export class ViewpageComponent implements OnInit {
 
   carouselItems: carouselItem[] = [];
   randomInstitutions!: InstitutionHomeGet[];
+  isLoggedIn: boolean = false;
 
   constructor(
     private institutionService: InstitutionService,
     private router: Router,
-    private authGuard: AuthGuard
+    private authGuard: AuthGuard,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.institutionService.getRandomInstitutions().pipe(take(1)).subscribe(res => this.randomInstitutions = res)
+
+    this.isLoggedIn = this.authService.isLoggedIn()
 
     this.carouselItems = [
       {
